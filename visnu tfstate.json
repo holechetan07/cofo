@@ -1,0 +1,4278 @@
+{
+  "version": 4,
+  "terraform_version": "1.4.2",
+  "serial": 64,
+  "lineage": "c7ed92b9-e877-0ed3-18b4-073ff218daec",
+  "outputs": {
+    "default_security_group_id": {
+      "value": "sg-045df6b71357284a0",
+      "type": "string"
+    },
+    "lambda_function_names": {
+      "value": {
+        "client": "skylight-dev-lambda-client",
+        "deliverables": "skylight-dev-lambda-deliverables",
+        "fund": "skylight-dev-lambda-fund",
+        "rbac": "skylight-dev-lambda-rbac",
+        "sla": "skylight-dev-lambda-sla"
+      },
+      "type": [
+        "object",
+        {
+          "client": "string",
+          "deliverables": "string",
+          "fund": "string",
+          "rbac": "string",
+          "sla": "string"
+        }
+      ]
+    },
+    "private_subnet_ids": {
+      "value": [
+        "subnet-0ffaa9cc7b9b0fc97",
+        "subnet-03c56e8fcd78d4259"
+      ],
+      "type": [
+        "tuple",
+        [
+          "string",
+          "string"
+        ]
+      ]
+    },
+    "public_subnet_ids": {
+      "value": [
+        "subnet-06b767bd71c23c764",
+        "subnet-02ba71757ac2e1e25"
+      ],
+      "type": [
+        "tuple",
+        [
+          "string",
+          "string"
+        ]
+      ]
+    },
+    "vpc_id": {
+      "value": "vpc-05b23b23361ecd1c3",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "aws_acm_certificate",
+      "name": "cloudfront_cert",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"].us_east_1",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:acm:us-east-1:700672899528:certificate/b45a3b57-473b-40cb-b740-fac22cdd1abe",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIIF0jCCBLqgAwIBAgIQATnMNZr74oALKWIKiTerWjANBgkqhkiG9w0BAQsFADA8\nMQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRwwGgYDVQQDExNBbWF6b24g\nUlNBIDIwNDggTTA0MB4XDTI1MTIyMjAwMDAwMFoXDTI3MDEyMDIzNTk1OVowGjEY\nMBYGA1UEAxMPY29mb3JnZW11ZmcuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A\nMIIBCgKCAQEAyB6iwhByuaQv9ERu2eqim5LqzZ7RgzqMYH5kB52WT/JVEp4EDMXX\n3lf+qYeoHNC7cC/PVSPsnrSgH7HoNbcICyLdeprZVeu8BCK4DuFN2j42KejMYQ9H\nd0AXLOZAWCwTsTWgwPIyFEMCtY4TJJMw2ottWOpXl9bU2BIxiwbd715PacXjtrgL\nqxAgRO45eZnehJIYKcxvSyqP391Uy8xPNLg+k6Jk0yw693ABchlSh2+eoWAT1m8p\n+tlfR+qokIAb455Z2Qqe0+tHF+3pFV5Q4TSXgBvzlfD9+D2+yQlCku+HjffpoThk\nTQCN34gcZG+Z3a5kjWmIACFrZueJxbKylwIDAQABo4IC8DCCAuwwHwYDVR0jBBgw\nFoAUH1KSYVaCVH+BZtgdPQqqMlyH3QgwHQYDVR0OBBYEFNiAgBpA1sZ8QM2WuSYO\nKhVaLJqdMC0GA1UdEQQmMCSCD2NvZm9yZ2VtdWZnLmNvbYIRKi5jb2ZvcmdlbXVm\nZy5jb20wEwYDVR0gBAwwCjAIBgZngQwBAgEwDgYDVR0PAQH/BAQDAgWgMBMGA1Ud\nJQQMMAoGCCsGAQUFBwMBMDsGA1UdHwQ0MDIwMKAuoCyGKmh0dHA6Ly9jcmwucjJt\nMDQuYW1hem9udHJ1c3QuY29tL3IybTA0LmNybDB1BggrBgEFBQcBAQRpMGcwLQYI\nKwYBBQUHMAGGIWh0dHA6Ly9vY3NwLnIybTA0LmFtYXpvbnRydXN0LmNvbTA2Bggr\nBgEFBQcwAoYqaHR0cDovL2NydC5yMm0wNC5hbWF6b250cnVzdC5jb20vcjJtMDQu\nY2VyMAwGA1UdEwEB/wQCMAAwggF9BgorBgEEAdZ5AgQCBIIBbQSCAWkBZwB1AExj\n3JjlnB2riPYeij3ero+rRKM3e1+blMP7oZz8wb4mAAABm0bSap0AAAQDAEYwRAIg\nbkV6WaGceWIKjgzlnnQcqB54RxkWukTtnNT/KkgVoI4CIEh2r/eA577IoUbyHtn9\nrY1PL5aY6MANveRFUCfJQHaCAHcAHJ9oLOn68EVpUPgbloqH3dsyENhM5siy44JS\nSsTPWZ8AAAGbRtJqxQAABAMASDBGAiEA0D785GxHZs2U141AQt+ONifgg5MOKtfm\n9QwttvB78NQCIQC0heS2AfrQ1+ioL4Kpy/g+6WDH3G2JvoXH5gngLuqCnAB1AGBM\nmq96f3dfAdQG/JINyJnrCxx9+MlSG/r6F3c7l4vJAAABm0bSa3gAAAQDAEYwRAIg\nBb3mbKUbLeHp0alohCIrH0/X03WHlm1g5mme3U/XvokCIFRjpstC46G6WkFXcNhb\ncpgEKt0sfKpjlyAD8UwXdxQfMA0GCSqGSIb3DQEBCwUAA4IBAQAsI1DFkwRT54Hb\n0PjETl7JHpENtqKyoyk5x3mTXJOtCzI78drWv60yZa/rrH0c033tZVIbzhHuJ9Lo\nUpwlWqBK72OaGn+cgd6Fa3jbiWf57uK8arKr13OfJ1iYu/aDi6SkzEzNxmFkMkhS\nEISbzOaHiU2Us/qo31HAJlB+jiYOEj+DmKyZFeG74SVcWoYsOYbcz0aKlpWSviPg\nmwKY8CY3sxeE3pZW8og4NPUTTDBylz4E2v2uNRWdoNbXt7g0XVZdWpvdHHjULSsk\n/o3Qn27sEcmajkMLF+8Vh40bz5/bB3TnOIXniyc9sCA1hR0oW7Egd6zf2eZfk4k/\n0vbYCz1a\n-----END CERTIFICATE-----\n",
+            "certificate_chain": "-----BEGIN CERTIFICATE-----\nMIIEXjCCA0agAwIBAgITB3MSTyqVLj7Rili9uF0bwM5fJzANBgkqhkiG9w0BAQsF\nADA5MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6\nb24gUm9vdCBDQSAxMB4XDTIyMDgyMzIyMjYzNVoXDTMwMDgyMzIyMjYzNVowPDEL\nMAkGA1UEBhMCVVMxDzANBgNVBAoTBkFtYXpvbjEcMBoGA1UEAxMTQW1hem9uIFJT\nQSAyMDQ4IE0wNDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAM3pVR6A\nlQOp4xe776FdePXyejgA38mYx1ou9/jrpV6Sfn+/oqBKgwhY6ePsQHHQayWBJdBn\nv4Wz363qRI4XUh9swBFJ11TnZ3LqOMvHmWq2+loA0QPtOfXdJ2fHBLrBrngtJ/GB\n0p5olAVYrSZgvQGP16Rf8ddtNyxEEhYm3HuhmNi+vSeAq1tLYJPAvRCXonTpWdSD\nxY6hvdmxlqTYi82AtBXSfpGQ58HHM0hw0C6aQakghrwWi5fGslLOqzpimNMIsT7c\nqa0GJx6JfKqJqmQQNplO2h8n9ZsFJgBowof01ppdoLAWg6caMOM0om/VILKaa30F\n9W/r8Qjah7ltGVkCAwEAAaOCAVowggFWMBIGA1UdEwEB/wQIMAYBAf8CAQAwDgYD\nVR0PAQH/BAQDAgGGMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAdBgNV\nHQ4EFgQUH1KSYVaCVH+BZtgdPQqqMlyH3QgwHwYDVR0jBBgwFoAUhBjMhTTsvAyU\nlC4IWZzHshBOCggwewYIKwYBBQUHAQEEbzBtMC8GCCsGAQUFBzABhiNodHRwOi8v\nb2NzcC5yb290Y2ExLmFtYXpvbnRydXN0LmNvbTA6BggrBgEFBQcwAoYuaHR0cDov\nL2NydC5yb290Y2ExLmFtYXpvbnRydXN0LmNvbS9yb290Y2ExLmNlcjA/BgNVHR8E\nODA2MDSgMqAwhi5odHRwOi8vY3JsLnJvb3RjYTEuYW1hem9udHJ1c3QuY29tL3Jv\nb3RjYTEuY3JsMBMGA1UdIAQMMAowCAYGZ4EMAQIBMA0GCSqGSIb3DQEBCwUAA4IB\nAQA+1O5UsAaNuW3lHzJtpNGwBnZd9QEYFtxpiAnIaV4qApnGS9OCw5ZPwie7YSlD\nZF5yyFPsFhUC2Q9uJHY/CRV1b5hIiGH0+6+w5PgKiY1MWuWT8VAaJjFxvuhM7a/e\nfN2TIw1Wd6WCl6YRisunjQOrSP+unqC8A540JNyZ1JOE3jVqat3OZBGgMvihdj2w\nY23EpwesrKiQzkHzmvSH67PVW4ycbPy08HVZnBxZ5NrlGG9bwXR3fNTaz+c+Ej6c\n5AnwI3qkOFgSkg3Y75cdFz6pO/olK+e3AqygAcv0WjzmkDPuBjssuZjCHMC56oH3\nGJkV29Di2j5prHJbwZjG1inU\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIIEkjCCA3qgAwIBAgITBn+USionzfP6wq4rAfkI7rnExjANBgkqhkiG9w0BAQsF\nADCBmDELMAkGA1UEBhMCVVMxEDAOBgNVBAgTB0FyaXpvbmExEzARBgNVBAcTClNj\nb3R0c2RhbGUxJTAjBgNVBAoTHFN0YXJmaWVsZCBUZWNobm9sb2dpZXMsIEluYy4x\nOzA5BgNVBAMTMlN0YXJmaWVsZCBTZXJ2aWNlcyBSb290IENlcnRpZmljYXRlIEF1\ndGhvcml0eSAtIEcyMB4XDTE1MDUyNTEyMDAwMFoXDTM3MTIzMTAxMDAwMFowOTEL\nMAkGA1UEBhMCVVMxDzANBgNVBAoTBkFtYXpvbjEZMBcGA1UEAxMQQW1hem9uIFJv\nb3QgQ0EgMTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALJ4gHHKeNXj\nca9HgFB0fW7Y14h29Jlo91ghYPl0hAEvrAIthtOgQ3pOsqTQNroBvo3bSMgHFzZM\n9O6II8c+6zf1tRn4SWiw3te5djgdYZ6k/oI2peVKVuRF4fn9tBb6dNqcmzU5L/qw\nIFAGbHrQgLKm+a/sRxmPUDgH3KKHOVj4utWp+UhnMJbulHheb4mjUcAwhmahRWa6\nVOujw5H5SNz/0egwLX0tdHA114gk957EWW67c4cX8jJGKLhD+rcdqsq08p8kDi1L\n93FcXmn/6pUCyziKrlA4b9v7LWIbxcceVOF34GfID5yHI9Y/QCB/IIDEgEw+OyQm\njgSubJrIqg0CAwEAAaOCATEwggEtMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/\nBAQDAgGGMB0GA1UdDgQWBBSEGMyFNOy8DJSULghZnMeyEE4KCDAfBgNVHSMEGDAW\ngBScXwDfqgHXMCs4iKK4bUqc8hGRgzB4BggrBgEFBQcBAQRsMGowLgYIKwYBBQUH\nMAGGImh0dHA6Ly9vY3NwLnJvb3RnMi5hbWF6b250cnVzdC5jb20wOAYIKwYBBQUH\nMAKGLGh0dHA6Ly9jcnQucm9vdGcyLmFtYXpvbnRydXN0LmNvbS9yb290ZzIuY2Vy\nMD0GA1UdHwQ2MDQwMqAwoC6GLGh0dHA6Ly9jcmwucm9vdGcyLmFtYXpvbnRydXN0\nLmNvbS9yb290ZzIuY3JsMBEGA1UdIAQKMAgwBgYEVR0gADANBgkqhkiG9w0BAQsF\nAAOCAQEAYjdCXLwQtT6LLOkMm2xF4gcAevnFWAu5CIw+7bMlPLVvUOTNNWqnkzSW\nMiGpSESrnO09tKpzbeR/FoCJbM8oAxiDR3mjEH4wW6w7sGDgd9QIpuEdfF7Au/ma\neyKdpwAJfqxGF4PcnCZXmTA5YpaP7dreqsXMGz7KQ2hsVxa81Q4gLv7/wmpdLqBK\nbRRYh5TmOTFffHPLkIhqhBGWJ6bt2YFGpn6jcgAKUj6DiAdjd4lpFw85hdKrCEVN\n0FE6/V1dN2RMfjCyVSRCnTawXZwXgWHxyvkQAiSr6w10kY17RSlQOYiypok1JR4U\nakcjMS9cmvqtmg5iUaQqqcT5NJ0hGA==\n-----END CERTIFICATE-----\n",
+            "domain": "coforgemufg.com",
+            "id": "arn:aws:acm:us-east-1:700672899528:certificate/b45a3b57-473b-40cb-b740-fac22cdd1abe",
+            "key_types": null,
+            "most_recent": true,
+            "status": "ISSUED",
+            "statuses": [
+              "ISSUED"
+            ],
+            "tags": {
+              "Name": "mufg-domain-cert-cloudfront"
+            },
+            "types": null
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_region",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Europe (Ireland)",
+            "endpoint": "ec2.eu-west-1.amazonaws.com",
+            "id": "eu-west-1",
+            "name": "eu-west-1"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_route53_zone",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"].dns",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:route53:::hostedzone/Z07198081O7PV19IETBSS",
+            "caller_reference": "RISWorkflow-RD:65d4af70-2ff1-4f09-8cb6-e4c8ea073e59",
+            "comment": "HostedZone created by Route53 Registrar",
+            "id": "Z07198081O7PV19IETBSS",
+            "linked_service_description": null,
+            "linked_service_principal": null,
+            "name": "coforgemufg.com",
+            "name_servers": [
+              "ns-12.awsdns-01.com",
+              "ns-1266.awsdns-30.org",
+              "ns-1001.awsdns-61.net",
+              "ns-1724.awsdns-23.co.uk"
+            ],
+            "primary_name_server": "ns-12.awsdns-01.com",
+            "private_zone": false,
+            "resource_record_set_count": 36,
+            "tags": {},
+            "vpc_id": null,
+            "zone_id": "Z07198081O7PV19IETBSS"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_subnets",
+      "name": "private",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "filter": [
+              {
+                "name": "tag:Name",
+                "values": [
+                  "private-tier*-subnet"
+                ]
+              },
+              {
+                "name": "vpc-id",
+                "values": [
+                  "vpc-05b23b23361ecd1c3"
+                ]
+              }
+            ],
+            "id": "eu-west-1",
+            "ids": [],
+            "tags": null,
+            "timeouts": null
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_vpc",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:vpc/vpc-05b23b23361ecd1c3",
+            "cidr_block": "11.0.0.0/16",
+            "cidr_block_associations": [
+              {
+                "association_id": "vpc-cidr-assoc-010352e67067d4e7c",
+                "cidr_block": "11.0.0.0/16",
+                "state": "associated"
+              }
+            ],
+            "default": false,
+            "dhcp_options_id": "dopt-0ae219ad4893d14e1",
+            "enable_dns_hostnames": false,
+            "enable_dns_support": true,
+            "enable_network_address_usage_metrics": false,
+            "filter": [
+              {
+                "name": "vpc-id",
+                "values": [
+                  "vpc-05b23b23361ecd1c3"
+                ]
+              }
+            ],
+            "id": "vpc-05b23b23361ecd1c3",
+            "instance_tenancy": "default",
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "main_route_table_id": "rtb-0165478eb548032bf",
+            "owner_id": "700672899528",
+            "state": null,
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-vpc-new",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_acm_certificate",
+      "name": "mufg_domain_cert",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:acm:eu-west-1:700672899528:certificate/cacca3d2-1b09-453d-b5a6-341ad8d237f4",
+            "certificate_authority_arn": "",
+            "certificate_body": null,
+            "certificate_chain": null,
+            "domain_name": "coforgemufg.com",
+            "domain_validation_options": [
+              {
+                "domain_name": "*.coforgemufg.com",
+                "resource_record_name": "_51711efad3044d5093ef2c789e14b0ec.coforgemufg.com.",
+                "resource_record_type": "CNAME",
+                "resource_record_value": "_a0bbdd22fffacb0adb515957a3149338.xlfgrmvvlj.acm-validations.aws."
+              },
+              {
+                "domain_name": "coforgemufg.com",
+                "resource_record_name": "_51711efad3044d5093ef2c789e14b0ec.coforgemufg.com.",
+                "resource_record_type": "CNAME",
+                "resource_record_value": "_a0bbdd22fffacb0adb515957a3149338.xlfgrmvvlj.acm-validations.aws."
+              }
+            ],
+            "early_renewal_duration": "",
+            "id": "arn:aws:acm:eu-west-1:700672899528:certificate/cacca3d2-1b09-453d-b5a6-341ad8d237f4",
+            "key_algorithm": "RSA_2048",
+            "not_after": "2027-02-07T23:59:59Z",
+            "not_before": "2026-01-09T00:00:00Z",
+            "options": [
+              {
+                "certificate_transparency_logging_preference": "ENABLED"
+              }
+            ],
+            "pending_renewal": false,
+            "private_key": null,
+            "renewal_eligibility": "ELIGIBLE",
+            "renewal_summary": [],
+            "status": "ISSUED",
+            "subject_alternative_names": [
+              "*.coforgemufg.com",
+              "coforgemufg.com"
+            ],
+            "tags": {
+              "Name": "mufg-domain-cert-regional"
+            },
+            "tags_all": {
+              "Name": "mufg-domain-cert-regional"
+            },
+            "type": "AMAZON_ISSUED",
+            "validation_emails": [],
+            "validation_method": "DNS",
+            "validation_option": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_account",
+      "name": "account",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_key_version": "4",
+            "cloudwatch_role_arn": "arn:aws:iam::700672899528:role/apigw-cloudwatch-logs-role",
+            "features": [
+              "UsagePlans"
+            ],
+            "id": "api-gateway-account",
+            "reset_on_delete": null,
+            "throttle_settings": [
+              {
+                "burst_limit": 5000,
+                "rate_limit": 10000
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "dependencies": [
+            "aws_iam_role.apigw_cloudwatch_role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_apigatewayv2_api",
+      "name": "graphql_api",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_endpoint": "https://1ap29iwwwi.execute-api.eu-west-1.amazonaws.com",
+            "api_key_selection_expression": "$request.header.x-api-key",
+            "arn": "arn:aws:apigateway:eu-west-1::/apis/1ap29iwwwi",
+            "body": null,
+            "cors_configuration": [
+              {
+                "allow_credentials": false,
+                "allow_headers": [
+                  "authorization",
+                  "content-type",
+                  "x-amz-date",
+                  "x-amz-security-token",
+                  "x-amz-user-agent",
+                  "x-api-key"
+                ],
+                "allow_methods": [
+                  "GET",
+                  "HEAD",
+                  "OPTIONS",
+                  "POST",
+                  "PUT"
+                ],
+                "allow_origins": [
+                  "https://skylight-coforge.coforgemufg.com"
+                ],
+                "expose_headers": [],
+                "max_age": 86400
+              }
+            ],
+            "credentials_arn": null,
+            "description": "Single HTTP API Gateway for skylight dev",
+            "disable_execute_api_endpoint": false,
+            "execution_arn": "arn:aws:execute-api:eu-west-1:700672899528:1ap29iwwwi",
+            "fail_on_warnings": null,
+            "id": "1ap29iwwwi",
+            "ip_address_type": "ipv4",
+            "name": "skylight-dev-api",
+            "protocol_type": "HTTP",
+            "route_key": null,
+            "route_selection_expression": "$request.method $request.path",
+            "tags": {},
+            "tags_all": {},
+            "target": null,
+            "version": ""
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_apigatewayv2_api_mapping",
+      "name": "api_mapping",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "api_mapping_key": "",
+            "domain_name": "skylightapi.coforgemufg.com",
+            "id": "nw53f0",
+            "stage": "$default"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_acm_certificate.mufg_domain_cert",
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_apigatewayv2_domain_name.api_domain",
+            "aws_apigatewayv2_stage.graphql_stage",
+            "module.api_gateway_log_group.aws_cloudwatch_log_group.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_apigatewayv2_domain_name",
+      "name": "api_domain",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_mapping_selection_expression": "$request.basepath",
+            "arn": "arn:aws:apigateway:eu-west-1::/domainnames/skylightapi.coforgemufg.com",
+            "domain_name": "skylightapi.coforgemufg.com",
+            "domain_name_configuration": [
+              {
+                "certificate_arn": "arn:aws:acm:eu-west-1:700672899528:certificate/cacca3d2-1b09-453d-b5a6-341ad8d237f4",
+                "endpoint_type": "REGIONAL",
+                "hosted_zone_id": "ZLY8HYME6SFDD",
+                "ip_address_type": "ipv4",
+                "ownership_verification_certificate_arn": "",
+                "security_policy": "TLS_1_2",
+                "target_domain_name": "d-bhqz8ppkaa.execute-api.eu-west-1.amazonaws.com"
+              }
+            ],
+            "id": "skylightapi.coforgemufg.com",
+            "mutual_tls_authentication": [],
+            "tags": {},
+            "tags_all": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsInVwZGF0ZSI6MzYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_acm_certificate.mufg_domain_cert"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_apigatewayv2_integration",
+      "name": "graphql_lambda",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": "client",
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "connection_id": "",
+            "connection_type": "INTERNET",
+            "content_handling_strategy": "",
+            "credentials_arn": "",
+            "description": "",
+            "id": "3d5oklb",
+            "integration_method": "POST",
+            "integration_response_selection_expression": "",
+            "integration_subtype": "",
+            "integration_type": "AWS_PROXY",
+            "integration_uri": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-client",
+            "passthrough_behavior": "",
+            "payload_format_version": "2.0",
+            "request_parameters": {},
+            "request_templates": {},
+            "response_parameters": [],
+            "template_selection_expression": "",
+            "timeout_milliseconds": 30000,
+            "tls_config": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "deliverables",
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "connection_id": "",
+            "connection_type": "INTERNET",
+            "content_handling_strategy": "",
+            "credentials_arn": "",
+            "description": "",
+            "id": "uglvffj",
+            "integration_method": "POST",
+            "integration_response_selection_expression": "",
+            "integration_subtype": "",
+            "integration_type": "AWS_PROXY",
+            "integration_uri": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-deliverables",
+            "passthrough_behavior": "",
+            "payload_format_version": "2.0",
+            "request_parameters": {},
+            "request_templates": {},
+            "response_parameters": [],
+            "template_selection_expression": "",
+            "timeout_milliseconds": 30000,
+            "tls_config": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "fund",
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "connection_id": "",
+            "connection_type": "INTERNET",
+            "content_handling_strategy": "",
+            "credentials_arn": "",
+            "description": "",
+            "id": "vwo66oi",
+            "integration_method": "POST",
+            "integration_response_selection_expression": "",
+            "integration_subtype": "",
+            "integration_type": "AWS_PROXY",
+            "integration_uri": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-fund",
+            "passthrough_behavior": "",
+            "payload_format_version": "2.0",
+            "request_parameters": {},
+            "request_templates": {},
+            "response_parameters": [],
+            "template_selection_expression": "",
+            "timeout_milliseconds": 30000,
+            "tls_config": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "rbac",
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "connection_id": "",
+            "connection_type": "INTERNET",
+            "content_handling_strategy": "",
+            "credentials_arn": "",
+            "description": "",
+            "id": "tdnj91r",
+            "integration_method": "POST",
+            "integration_response_selection_expression": "",
+            "integration_subtype": "",
+            "integration_type": "AWS_PROXY",
+            "integration_uri": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-rbac",
+            "passthrough_behavior": "",
+            "payload_format_version": "2.0",
+            "request_parameters": {},
+            "request_templates": {},
+            "response_parameters": [],
+            "template_selection_expression": "",
+            "timeout_milliseconds": 30000,
+            "tls_config": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "sla",
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "connection_id": "",
+            "connection_type": "INTERNET",
+            "content_handling_strategy": "",
+            "credentials_arn": "",
+            "description": "",
+            "id": "5u3w420",
+            "integration_method": "POST",
+            "integration_response_selection_expression": "",
+            "integration_subtype": "",
+            "integration_type": "AWS_PROXY",
+            "integration_uri": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-sla",
+            "passthrough_behavior": "",
+            "payload_format_version": "2.0",
+            "request_parameters": {},
+            "request_templates": {},
+            "response_parameters": [],
+            "template_selection_expression": "",
+            "timeout_milliseconds": 30000,
+            "tls_config": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_apigatewayv2_route",
+      "name": "graphql_post",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": "client",
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "api_key_required": false,
+            "authorization_scopes": [],
+            "authorization_type": "NONE",
+            "authorizer_id": "",
+            "id": "a4i0rhv",
+            "model_selection_expression": "",
+            "operation_name": "GraphQL-client",
+            "request_models": {},
+            "request_parameter": [],
+            "route_key": "POST /graphql/client",
+            "route_response_selection_expression": "",
+            "target": "integrations/3d5oklb"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_apigatewayv2_integration.graphql_lambda",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "deliverables",
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "api_key_required": false,
+            "authorization_scopes": [],
+            "authorization_type": "NONE",
+            "authorizer_id": "",
+            "id": "q5fwsu2",
+            "model_selection_expression": "",
+            "operation_name": "GraphQL-deliverables",
+            "request_models": {},
+            "request_parameter": [],
+            "route_key": "POST /graphql/deliverables",
+            "route_response_selection_expression": "",
+            "target": "integrations/uglvffj"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_apigatewayv2_integration.graphql_lambda",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "fund",
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "api_key_required": false,
+            "authorization_scopes": [],
+            "authorization_type": "NONE",
+            "authorizer_id": "",
+            "id": "iol5t0r",
+            "model_selection_expression": "",
+            "operation_name": "GraphQL-fund",
+            "request_models": {},
+            "request_parameter": [],
+            "route_key": "POST /graphql/fund",
+            "route_response_selection_expression": "",
+            "target": "integrations/vwo66oi"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_apigatewayv2_integration.graphql_lambda",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "rbac",
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "api_key_required": false,
+            "authorization_scopes": [],
+            "authorization_type": "NONE",
+            "authorizer_id": "",
+            "id": "hoa73lm",
+            "model_selection_expression": "",
+            "operation_name": "GraphQL-rbac",
+            "request_models": {},
+            "request_parameter": [],
+            "route_key": "POST /graphql/rbac",
+            "route_response_selection_expression": "",
+            "target": "integrations/tdnj91r"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_apigatewayv2_integration.graphql_lambda",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "sla",
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "1ap29iwwwi",
+            "api_key_required": false,
+            "authorization_scopes": [],
+            "authorization_type": "NONE",
+            "authorizer_id": "",
+            "id": "ykffp0t",
+            "model_selection_expression": "",
+            "operation_name": "GraphQL-sla",
+            "request_models": {},
+            "request_parameter": [],
+            "route_key": "POST /graphql/sla",
+            "route_response_selection_expression": "",
+            "target": "integrations/5u3w420"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_apigatewayv2_integration.graphql_lambda",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_apigatewayv2_stage",
+      "name": "graphql_stage",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_log_settings": [
+              {
+                "destination_arn": "arn:aws:logs:eu-west-1:700672899528:log-group:/aws/apigateway/skylight-dev-api",
+                "format": "{\"error\":\"$context.error.message\",\"httpMethod\":\"$context.httpMethod\",\"integrationError\":\"$context.integration.error\",\"integrationLatency\":\"$context.integration.latency\",\"ip\":\"$context.identity.sourceIp\",\"protocol\":\"$context.protocol\",\"requestId\":\"$context.requestId\",\"requestPath\":\"$context.path\",\"requestTime\":\"$context.requestTime\",\"responseLength\":\"$context.responseLength\",\"routeKey\":\"$context.routeKey\",\"stage\":\"$context.stage\",\"status\":\"$context.status\",\"userAgent\":\"$context.identity.userAgent\"}"
+              }
+            ],
+            "api_id": "1ap29iwwwi",
+            "arn": "arn:aws:apigateway:eu-west-1::/apis/1ap29iwwwi/stages/$default",
+            "auto_deploy": true,
+            "client_certificate_id": "",
+            "default_route_settings": [
+              {
+                "data_trace_enabled": false,
+                "detailed_metrics_enabled": true,
+                "logging_level": "",
+                "throttling_burst_limit": 100,
+                "throttling_rate_limit": 50
+              }
+            ],
+            "deployment_id": "gkyvsy",
+            "description": "",
+            "execution_arn": "arn:aws:execute-api:eu-west-1:700672899528:1ap29iwwwi/$default",
+            "id": "$default",
+            "invoke_url": "https://1ap29iwwwi.execute-api.eu-west-1.amazonaws.com/",
+            "name": "$default",
+            "route_settings": [],
+            "stage_variables": {},
+            "tags": {
+              "Name": "skylight-dev-api-gateway-stage"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-api-gateway-stage"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "module.api_gateway_log_group.aws_cloudwatch_log_group.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_db_subnet_group",
+      "name": "db_subnets",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:rds:eu-west-1:700672899528:subgrp:dev-db-subnets",
+            "description": "Managed by Terraform",
+            "id": "dev-db-subnets",
+            "name": "dev-db-subnets",
+            "name_prefix": "",
+            "subnet_ids": [
+              "subnet-03c56e8fcd78d4259",
+              "subnet-0ffaa9cc7b9b0fc97"
+            ],
+            "supported_network_types": [
+              "IPV4"
+            ],
+            "tags": {
+              "Name": "skylight-dev-db-subnets"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-db-subnets"
+            },
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_subnet.private",
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_eip",
+      "name": "nat",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address": null,
+            "allocation_id": "eipalloc-015496faac6b30223",
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:elastic-ip/eipalloc-015496faac6b30223",
+            "associate_with_private_ip": null,
+            "association_id": "eipassoc-050149c2a7e6ef1e2",
+            "carrier_ip": "",
+            "customer_owned_ip": "",
+            "customer_owned_ipv4_pool": "",
+            "domain": "vpc",
+            "id": "eipalloc-015496faac6b30223",
+            "instance": "",
+            "ipam_pool_id": null,
+            "network_border_group": "eu-west-1",
+            "network_interface": "eni-092117709b4935bb9",
+            "private_dns": "ip-11-0-10-215.eu-west-1.compute.internal",
+            "private_ip": "11.0.10.215",
+            "ptr_record": "",
+            "public_dns": "ec2-34-251-177-82.eu-west-1.compute.amazonaws.com",
+            "public_ip": "34.251.177.82",
+            "public_ipv4_pool": "amazon",
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-nat-eip",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-nat-eip",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null,
+            "vpc": true
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjoxODAwMDAwMDAwMDAsInJlYWQiOjkwMDAwMDAwMDAwMCwidXBkYXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_policy",
+      "name": "eks_iam_policy_1",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::700672899528:policy/eks_iam_policy",
+            "attachment_count": 0,
+            "description": "My example policy",
+            "id": "arn:aws:iam::700672899528:policy/eks_iam_policy",
+            "name": "eks_iam_policy",
+            "name_prefix": "",
+            "path": "/",
+            "policy": "{\"Statement\":[{\"Action\":[\"s3:ListAllMyBuckets\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"s3:*\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::*\"}],\"Version\":\"2012-10-17\"}",
+            "policy_id": "ANPA2GI237HEGUV3K7VIL",
+            "tags": {},
+            "tags_all": {}
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "apigw_cloudwatch_role",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::700672899528:role/apigw-cloudwatch-logs-role",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"apigateway.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2026-01-09T21:06:36Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "apigw-cloudwatch-logs-role",
+            "inline_policy": [],
+            "managed_policy_arns": [
+              "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+            ],
+            "max_session_duration": 3600,
+            "name": "apigw-cloudwatch-logs-role",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": {},
+            "tags_all": {},
+            "unique_id": "AROA2GI237HEP2SH77PRS"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "lambda_exec",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::700672899528:role/skylight-dev-lambda-exec-role",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2025-12-17T11:55:19Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "skylight-dev-lambda-exec-role",
+            "inline_policy": [
+              {
+                "name": "skylight-dev-lambda-exec-policy",
+                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"logs:CreateLogGroup\",\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:logs:*:*:*\"},{\"Action\":[\"ec2:CreateNetworkInterface\",\"ec2:DescribeNetworkInterfaces\",\"ec2:DeleteNetworkInterface\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"s3:GetObject\",\"s3:ListBucket\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::s3-euw1-skylight-dev-ssl-certs-new\",\"arn:aws:s3:::s3-euw1-skylight-dev-ssl-certs-new/*\"]},{\"Action\":[\"secretsmanager:GetSecretValue\",\"secretsmanager:DescribeSecret\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/backend/d/skylight-J0Lnhn\",\"arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/frontend/d/skylight-b6Kvuv\"]}]}"
+              }
+            ],
+            "managed_policy_arns": [],
+            "max_session_duration": 3600,
+            "name": "skylight-dev-lambda-exec-role",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": {
+              "Name": "skylight-dev-lambda-exec-role"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-exec-role"
+            },
+            "unique_id": "AROA2GI237HEPRNBTIUXV"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy",
+      "name": "lambda_exec_policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "skylight-dev-lambda-exec-role:skylight-dev-lambda-exec-policy",
+            "name": "skylight-dev-lambda-exec-policy",
+            "name_prefix": "",
+            "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"logs:CreateLogGroup\",\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:logs:*:*:*\"},{\"Action\":[\"ec2:CreateNetworkInterface\",\"ec2:DescribeNetworkInterfaces\",\"ec2:DeleteNetworkInterface\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"s3:GetObject\",\"s3:ListBucket\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::s3-euw1-skylight-dev-ssl-certs-new\",\"arn:aws:s3:::s3-euw1-skylight-dev-ssl-certs-new/*\"]},{\"Action\":[\"secretsmanager:GetSecretValue\",\"secretsmanager:DescribeSecret\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/backend/d/skylight-J0Lnhn\",\"arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/frontend/d/skylight-b6Kvuv\"]}]}",
+            "role": "skylight-dev-lambda-exec-role"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "apigw_logs_attach",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "apigw-cloudwatch-logs-role-20260109210636743200000001",
+            "policy_arn": "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+            "role": "apigw-cloudwatch-logs-role"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.apigw_cloudwatch_role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_internet_gateway",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:internet-gateway/igw-0d2e5132464f01c34",
+            "id": "igw-0d2e5132464f01c34",
+            "owner_id": "700672899528",
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-igw",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-igw",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lambda_permission",
+      "name": "apigw_invoke",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": "client",
+          "schema_version": 0,
+          "attributes": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "skylight-dev-lambda-client",
+            "function_url_auth_type": null,
+            "id": "AllowExecutionFromAPIGateway-client",
+            "principal": "apigateway.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": "",
+            "source_account": null,
+            "source_arn": "arn:aws:execute-api:eu-west-1:700672899528:1ap29iwwwi/*/*",
+            "statement_id": "AllowExecutionFromAPIGateway-client",
+            "statement_id_prefix": ""
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "deliverables",
+          "schema_version": 0,
+          "attributes": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "skylight-dev-lambda-deliverables",
+            "function_url_auth_type": null,
+            "id": "AllowExecutionFromAPIGateway-deliverables",
+            "principal": "apigateway.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": "",
+            "source_account": null,
+            "source_arn": "arn:aws:execute-api:eu-west-1:700672899528:1ap29iwwwi/*/*",
+            "statement_id": "AllowExecutionFromAPIGateway-deliverables",
+            "statement_id_prefix": ""
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "fund",
+          "schema_version": 0,
+          "attributes": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "skylight-dev-lambda-fund",
+            "function_url_auth_type": null,
+            "id": "AllowExecutionFromAPIGateway-fund",
+            "principal": "apigateway.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": "",
+            "source_account": null,
+            "source_arn": "arn:aws:execute-api:eu-west-1:700672899528:1ap29iwwwi/*/*",
+            "statement_id": "AllowExecutionFromAPIGateway-fund",
+            "statement_id_prefix": ""
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "rbac",
+          "schema_version": 0,
+          "attributes": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "skylight-dev-lambda-rbac",
+            "function_url_auth_type": null,
+            "id": "AllowExecutionFromAPIGateway-rbac",
+            "principal": "apigateway.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": "",
+            "source_account": null,
+            "source_arn": "arn:aws:execute-api:eu-west-1:700672899528:1ap29iwwwi/*/*",
+            "statement_id": "AllowExecutionFromAPIGateway-rbac",
+            "statement_id_prefix": ""
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        },
+        {
+          "index_key": "sla",
+          "schema_version": 0,
+          "attributes": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "skylight-dev-lambda-sla",
+            "function_url_auth_type": null,
+            "id": "AllowExecutionFromAPIGateway-sla",
+            "principal": "apigateway.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": "",
+            "source_account": null,
+            "source_arn": "arn:aws:execute-api:eu-west-1:700672899528:1ap29iwwwi/*/*",
+            "statement_id": "AllowExecutionFromAPIGateway-sla",
+            "statement_id_prefix": ""
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_apigatewayv2_api.graphql_api",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_nat_gateway",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocation_id": "eipalloc-015496faac6b30223",
+            "association_id": "eipassoc-050149c2a7e6ef1e2",
+            "connectivity_type": "public",
+            "id": "nat-04efaedd2310066fc",
+            "network_interface_id": "eni-092117709b4935bb9",
+            "private_ip": "11.0.10.215",
+            "public_ip": "34.251.177.82",
+            "secondary_allocation_ids": [],
+            "secondary_private_ip_address_count": 0,
+            "secondary_private_ip_addresses": [],
+            "subnet_id": "subnet-06b767bd71c23c764",
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-nat-gateway",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-nat-gateway",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTgwMDAwMDAwMDAwMCwidXBkYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "aws_eip.nat",
+            "aws_subnet.public",
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route",
+      "name": "private_nat_gateway",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "carrier_gateway_id": "",
+            "core_network_arn": "",
+            "destination_cidr_block": "0.0.0.0/0",
+            "destination_ipv6_cidr_block": "",
+            "destination_prefix_list_id": "",
+            "egress_only_gateway_id": "",
+            "gateway_id": "",
+            "id": "r-rtb-0edca4aa090dfd1921080289494",
+            "instance_id": "",
+            "instance_owner_id": "",
+            "local_gateway_id": "",
+            "nat_gateway_id": "nat-04efaedd2310066fc",
+            "network_interface_id": "",
+            "origin": "CreateRoute",
+            "route_table_id": "rtb-0edca4aa090dfd192",
+            "state": "active",
+            "timeouts": null,
+            "transit_gateway_id": "",
+            "vpc_endpoint_id": "",
+            "vpc_peering_connection_id": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_eip.nat",
+            "aws_nat_gateway.this",
+            "aws_route_table.private",
+            "aws_subnet.public",
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route",
+      "name": "public_internet_access",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "carrier_gateway_id": "",
+            "core_network_arn": "",
+            "destination_cidr_block": "0.0.0.0/0",
+            "destination_ipv6_cidr_block": "",
+            "destination_prefix_list_id": "",
+            "egress_only_gateway_id": "",
+            "gateway_id": "igw-0d2e5132464f01c34",
+            "id": "r-rtb-0c833bbeb138a9a7b1080289494",
+            "instance_id": "",
+            "instance_owner_id": "",
+            "local_gateway_id": "",
+            "nat_gateway_id": "",
+            "network_interface_id": "",
+            "origin": "CreateRoute",
+            "route_table_id": "rtb-0c833bbeb138a9a7b",
+            "state": "active",
+            "timeouts": null,
+            "transit_gateway_id": "",
+            "vpc_endpoint_id": "",
+            "vpc_peering_connection_id": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_internet_gateway.main",
+            "aws_route_table.public",
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route53_record",
+      "name": "api_gateway_apex_alias",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"].dns",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "alias": [
+              {
+                "evaluate_target_health": false,
+                "name": "d-bhqz8ppkaa.execute-api.eu-west-1.amazonaws.com",
+                "zone_id": "ZLY8HYME6SFDD"
+              }
+            ],
+            "allow_overwrite": null,
+            "cidr_routing_policy": [],
+            "failover_routing_policy": [],
+            "fqdn": "skylightapi.coforgemufg.com",
+            "geolocation_routing_policy": [],
+            "geoproximity_routing_policy": [],
+            "health_check_id": "",
+            "id": "Z07198081O7PV19IETBSS_skylightapi.coforgemufg.com_A",
+            "latency_routing_policy": [],
+            "multivalue_answer_routing_policy": false,
+            "name": "skylightapi.coforgemufg.com",
+            "records": [],
+            "set_identifier": "",
+            "timeouts": null,
+            "ttl": 0,
+            "type": "A",
+            "weighted_routing_policy": [],
+            "zone_id": "Z07198081O7PV19IETBSS"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInVwZGF0ZSI6MTgwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMiJ9",
+          "dependencies": [
+            "aws_acm_certificate.mufg_domain_cert",
+            "aws_apigatewayv2_domain_name.api_domain",
+            "data.aws_route53_zone.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route53_record",
+      "name": "frontend",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"].dns",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "alias": [
+              {
+                "evaluate_target_health": false,
+                "name": "d36v3w4adzmr25.cloudfront.net",
+                "zone_id": "Z2FDTNDATAQYW2"
+              }
+            ],
+            "allow_overwrite": null,
+            "cidr_routing_policy": [],
+            "failover_routing_policy": [],
+            "fqdn": "skylight-coforge.coforgemufg.com",
+            "geolocation_routing_policy": [],
+            "geoproximity_routing_policy": [],
+            "health_check_id": "",
+            "id": "Z07198081O7PV19IETBSS_skylight-coforge.coforgemufg.com_A",
+            "latency_routing_policy": [],
+            "multivalue_answer_routing_policy": false,
+            "name": "skylight-coforge.coforgemufg.com",
+            "records": [],
+            "set_identifier": "",
+            "timeouts": null,
+            "ttl": 0,
+            "type": "A",
+            "weighted_routing_policy": [],
+            "zone_id": "Z07198081O7PV19IETBSS"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInVwZGF0ZSI6MTgwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMiJ9",
+          "dependencies": [
+            "data.aws_route53_zone.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route53_record",
+      "name": "mufg_domain_cert_validation",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"].dns",
+      "instances": [
+        {
+          "index_key": "*.coforgemufg.com",
+          "schema_version": 2,
+          "attributes": {
+            "alias": [],
+            "allow_overwrite": true,
+            "cidr_routing_policy": [],
+            "failover_routing_policy": [],
+            "fqdn": "_51711efad3044d5093ef2c789e14b0ec.coforgemufg.com",
+            "geolocation_routing_policy": [],
+            "geoproximity_routing_policy": [],
+            "health_check_id": "",
+            "id": "Z07198081O7PV19IETBSS__51711efad3044d5093ef2c789e14b0ec.coforgemufg.com._CNAME",
+            "latency_routing_policy": [],
+            "multivalue_answer_routing_policy": false,
+            "name": "_51711efad3044d5093ef2c789e14b0ec.coforgemufg.com",
+            "records": [
+              "_a0bbdd22fffacb0adb515957a3149338.xlfgrmvvlj.acm-validations.aws."
+            ],
+            "set_identifier": "",
+            "timeouts": null,
+            "ttl": 60,
+            "type": "CNAME",
+            "weighted_routing_policy": [],
+            "zone_id": "Z07198081O7PV19IETBSS"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInVwZGF0ZSI6MTgwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMiJ9",
+          "dependencies": [
+            "aws_acm_certificate.mufg_domain_cert",
+            "data.aws_route53_zone.this"
+          ]
+        },
+        {
+          "index_key": "coforgemufg.com",
+          "schema_version": 2,
+          "attributes": {
+            "alias": [],
+            "allow_overwrite": true,
+            "cidr_routing_policy": [],
+            "failover_routing_policy": [],
+            "fqdn": "_51711efad3044d5093ef2c789e14b0ec.coforgemufg.com",
+            "geolocation_routing_policy": [],
+            "geoproximity_routing_policy": [],
+            "health_check_id": "",
+            "id": "Z07198081O7PV19IETBSS__51711efad3044d5093ef2c789e14b0ec.coforgemufg.com._CNAME",
+            "latency_routing_policy": [],
+            "multivalue_answer_routing_policy": false,
+            "name": "_51711efad3044d5093ef2c789e14b0ec.coforgemufg.com",
+            "records": [
+              "_a0bbdd22fffacb0adb515957a3149338.xlfgrmvvlj.acm-validations.aws."
+            ],
+            "set_identifier": "",
+            "timeouts": null,
+            "ttl": 60,
+            "type": "CNAME",
+            "weighted_routing_policy": [],
+            "zone_id": "Z07198081O7PV19IETBSS"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInVwZGF0ZSI6MTgwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMiJ9",
+          "dependencies": [
+            "aws_acm_certificate.mufg_domain_cert",
+            "data.aws_route53_zone.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "private",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:route-table/rtb-0edca4aa090dfd192",
+            "id": "rtb-0edca4aa090dfd192",
+            "owner_id": "700672899528",
+            "propagating_vgws": [],
+            "route": [
+              {
+                "carrier_gateway_id": "",
+                "cidr_block": "0.0.0.0/0",
+                "core_network_arn": "",
+                "destination_prefix_list_id": "",
+                "egress_only_gateway_id": "",
+                "gateway_id": "",
+                "ipv6_cidr_block": "",
+                "local_gateway_id": "",
+                "nat_gateway_id": "nat-04efaedd2310066fc",
+                "network_interface_id": "",
+                "transit_gateway_id": "",
+                "vpc_endpoint_id": "",
+                "vpc_peering_connection_id": ""
+              }
+            ],
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-private-rt",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-private-rt",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "public",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:route-table/rtb-0c833bbeb138a9a7b",
+            "id": "rtb-0c833bbeb138a9a7b",
+            "owner_id": "700672899528",
+            "propagating_vgws": [],
+            "route": [
+              {
+                "carrier_gateway_id": "",
+                "cidr_block": "0.0.0.0/0",
+                "core_network_arn": "",
+                "destination_prefix_list_id": "",
+                "egress_only_gateway_id": "",
+                "gateway_id": "igw-0d2e5132464f01c34",
+                "ipv6_cidr_block": "",
+                "local_gateway_id": "",
+                "nat_gateway_id": "",
+                "network_interface_id": "",
+                "transit_gateway_id": "",
+                "vpc_endpoint_id": "",
+                "vpc_peering_connection_id": ""
+              }
+            ],
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-public-rt",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-public-rt",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "private",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-07c5db3cee89bce39",
+            "route_table_id": "rtb-0edca4aa090dfd192",
+            "subnet_id": "subnet-0ffaa9cc7b9b0fc97",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_route_table.private",
+            "aws_subnet.private",
+            "aws_vpc.main"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-01770d783f9998f7a",
+            "route_table_id": "rtb-0edca4aa090dfd192",
+            "subnet_id": "subnet-03c56e8fcd78d4259",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_route_table.private",
+            "aws_subnet.private",
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "public",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-0a3ffc4398f6fb34e",
+            "route_table_id": "rtb-0c833bbeb138a9a7b",
+            "subnet_id": "subnet-06b767bd71c23c764",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_route_table.public",
+            "aws_subnet.public",
+            "aws_vpc.main"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-001098a3f152ea48d",
+            "route_table_id": "rtb-0c833bbeb138a9a7b",
+            "subnet_id": "subnet-02ba71757ac2e1e25",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_route_table.public",
+            "aws_subnet.public",
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_secretsmanager_secret",
+      "name": "app_backend_secrets",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/backend/d/skylight-J0Lnhn",
+            "description": "Backend application secrets for skylight dev environment including database credentials, API keys, and Lambda configuration. Values managed manually.",
+            "force_overwrite_replica_secret": false,
+            "id": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/backend/d/skylight-J0Lnhn",
+            "kms_key_id": "",
+            "name": "/mufgis/app/backend/d/skylight",
+            "name_prefix": "",
+            "policy": "",
+            "recovery_window_in_days": 30,
+            "replica": [],
+            "tags": {
+              "Name": "/mufgis/app/backend/d/skylight"
+            },
+            "tags_all": {
+              "Name": "/mufgis/app/backend/d/skylight"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_secretsmanager_secret",
+      "name": "app_frontend_secrets",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/frontend/d/skylight-b6Kvuv",
+            "description": "Frontend application secrets for skylight dev environment including authentication keys, API endpoints, and client configuration. Values managed manually.",
+            "force_overwrite_replica_secret": false,
+            "id": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/frontend/d/skylight-b6Kvuv",
+            "kms_key_id": "",
+            "name": "/mufgis/app/frontend/d/skylight",
+            "name_prefix": "",
+            "policy": "",
+            "recovery_window_in_days": 30,
+            "replica": [],
+            "tags": {
+              "Name": "/mufgis/app/frontend/d/skylight"
+            },
+            "tags_all": {
+              "Name": "/mufgis/app/frontend/d/skylight"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "default",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:security-group/sg-045df6b71357284a0",
+            "description": "Default security group for VPC",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-045df6b71357284a0",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "skylight-dev-sg",
+            "name_prefix": "",
+            "owner_id": "700672899528",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-sg",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-sg",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "lambda_sg",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:security-group/sg-063e1debeb6433821",
+            "description": "Security group for Lambda functions in private subnets",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "HTTPS outbound for AWS services",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              }
+            ],
+            "id": "sg-063e1debeb6433821",
+            "ingress": [],
+            "name": "skylight-dev-lambda-sg",
+            "name_prefix": "",
+            "owner_id": "700672899528",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "skylight-dev-lambda-sg"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-sg"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.aws_vpc.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "private",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:subnet/subnet-0ffaa9cc7b9b0fc97",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "eu-west-1a",
+            "availability_zone_id": "euw1-az2",
+            "cidr_block": "11.0.12.0/24",
+            "customer_owned_ipv4_pool": "",
+            "enable_dns64": false,
+            "enable_lni_at_device_index": 0,
+            "enable_resource_name_dns_a_record_on_launch": false,
+            "enable_resource_name_dns_aaaa_record_on_launch": false,
+            "id": "subnet-0ffaa9cc7b9b0fc97",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "ipv6_native": false,
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "700672899528",
+            "private_dns_hostname_type_on_launch": "ip-name",
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-private-1",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-private-1",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "aws_vpc.main"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:subnet/subnet-03c56e8fcd78d4259",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "eu-west-1b",
+            "availability_zone_id": "euw1-az3",
+            "cidr_block": "11.0.13.0/24",
+            "customer_owned_ipv4_pool": "",
+            "enable_dns64": false,
+            "enable_lni_at_device_index": 0,
+            "enable_resource_name_dns_a_record_on_launch": false,
+            "enable_resource_name_dns_aaaa_record_on_launch": false,
+            "id": "subnet-03c56e8fcd78d4259",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "ipv6_native": false,
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "700672899528",
+            "private_dns_hostname_type_on_launch": "ip-name",
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-private-2",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-private-2",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "public",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:subnet/subnet-06b767bd71c23c764",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "eu-west-1a",
+            "availability_zone_id": "euw1-az2",
+            "cidr_block": "11.0.10.0/24",
+            "customer_owned_ipv4_pool": "",
+            "enable_dns64": false,
+            "enable_lni_at_device_index": 0,
+            "enable_resource_name_dns_a_record_on_launch": false,
+            "enable_resource_name_dns_aaaa_record_on_launch": false,
+            "id": "subnet-06b767bd71c23c764",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "ipv6_native": false,
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": true,
+            "outpost_arn": "",
+            "owner_id": "700672899528",
+            "private_dns_hostname_type_on_launch": "ip-name",
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-public-1",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-public-1",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "aws_vpc.main"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:subnet/subnet-02ba71757ac2e1e25",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "eu-west-1b",
+            "availability_zone_id": "euw1-az3",
+            "cidr_block": "11.0.11.0/24",
+            "customer_owned_ipv4_pool": "",
+            "enable_dns64": false,
+            "enable_lni_at_device_index": 0,
+            "enable_resource_name_dns_a_record_on_launch": false,
+            "enable_resource_name_dns_aaaa_record_on_launch": false,
+            "id": "subnet-02ba71757ac2e1e25",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "ipv6_native": false,
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": true,
+            "outpost_arn": "",
+            "owner_id": "700672899528",
+            "private_dns_hostname_type_on_launch": "ip-name",
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-public-2",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-public-2",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_vpc",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:vpc/vpc-05b23b23361ecd1c3",
+            "assign_generated_ipv6_cidr_block": false,
+            "cidr_block": "11.0.0.0/16",
+            "default_network_acl_id": "acl-097e3125cc93e0e18",
+            "default_route_table_id": "rtb-0165478eb548032bf",
+            "default_security_group_id": "sg-0c6c35b60ed116110",
+            "dhcp_options_id": "dopt-0ae219ad4893d14e1",
+            "enable_dns_hostnames": false,
+            "enable_dns_support": true,
+            "enable_network_address_usage_metrics": false,
+            "id": "vpc-05b23b23361ecd1c3",
+            "instance_tenancy": "default",
+            "ipv4_ipam_pool_id": null,
+            "ipv4_netmask_length": null,
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_network_border_group": "",
+            "ipv6_ipam_pool_id": "",
+            "ipv6_netmask_length": 0,
+            "main_route_table_id": "rtb-0165478eb548032bf",
+            "owner_id": "700672899528",
+            "tags": {
+              "Environment": "dev",
+              "Name": "skylight-dev-vpc-new",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "skylight-dev-vpc-new",
+              "Owner": "platform",
+              "Project": "skylight"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.api_gateway_log_group",
+      "mode": "managed",
+      "type": "aws_cloudwatch_log_group",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:logs:eu-west-1:700672899528:log-group:/aws/apigateway/skylight-dev-api",
+            "id": "/aws/apigateway/skylight-dev-api",
+            "kms_key_id": "",
+            "log_group_class": "STANDARD",
+            "name": "/aws/apigateway/skylight-dev-api",
+            "name_prefix": "",
+            "retention_in_days": 14,
+            "skip_destroy": false,
+            "tags": {
+              "Name": "skylight-dev-api-gateway-log-group"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-api-gateway-log-group"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.api_gw",
+      "mode": "managed",
+      "type": "aws_api_gateway_base_path_mapping",
+      "name": "rest",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "api_id": "508x7bzork",
+            "base_path": "v1",
+            "domain_name": "skylightapi.coforgemufg.com",
+            "domain_name_id": "",
+            "id": "skylightapi.coforgemufg.com/v1",
+            "stage_name": "prod"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_acm_certificate.mufg_domain_cert",
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "data.aws_region.current",
+            "module.api_gw.aws_api_gateway_deployment.this",
+            "module.api_gw.aws_api_gateway_rest_api.this",
+            "module.api_gw.aws_api_gateway_stage.prod",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.api_gw",
+      "mode": "managed",
+      "type": "aws_api_gateway_deployment",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "canary_settings": [],
+            "created_date": "2026-01-09T20:39:05Z",
+            "description": "Deployment for skylight-dev-rest-api",
+            "execution_arn": "arn:aws:execute-api:eu-west-1:700672899528:508x7bzork/",
+            "id": "9q80qf",
+            "invoke_url": "https://508x7bzork.execute-api.eu-west-1.amazonaws.com/",
+            "rest_api_id": "508x7bzork",
+            "stage_description": null,
+            "stage_name": null,
+            "triggers": null,
+            "variables": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "data.aws_region.current",
+            "module.api_gw.aws_api_gateway_rest_api.this",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.api_gw",
+      "mode": "managed",
+      "type": "aws_api_gateway_method_settings",
+      "name": "all",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "508x7bzork-prod-*/*",
+            "method_path": "*/*",
+            "rest_api_id": "508x7bzork",
+            "settings": [
+              {
+                "cache_data_encrypted": false,
+                "cache_ttl_in_seconds": 300,
+                "caching_enabled": false,
+                "data_trace_enabled": false,
+                "logging_level": "INFO",
+                "metrics_enabled": true,
+                "require_authorization_for_cache_control": true,
+                "throttling_burst_limit": 200,
+                "throttling_rate_limit": 100,
+                "unauthorized_cache_control_header_strategy": "SUCCEED_WITH_RESPONSE_HEADER"
+              }
+            ],
+            "stage_name": "prod"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.api_gw.aws_api_gateway_rest_api.this",
+            "module.api_gw.aws_api_gateway_stage.prod"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.api_gw",
+      "mode": "managed",
+      "type": "aws_api_gateway_resource",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "nskx8t",
+            "parent_id": "k343g3q092",
+            "path": "/root",
+            "path_part": "root",
+            "rest_api_id": "508x7bzork"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "data.aws_region.current",
+            "module.api_gw.aws_api_gateway_rest_api.this",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.api_gw",
+      "mode": "managed",
+      "type": "aws_api_gateway_rest_api",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_key_source": "HEADER",
+            "arn": "arn:aws:apigateway:eu-west-1::/restapis/508x7bzork",
+            "binary_media_types": [],
+            "body": "\nswagger: \"2.0\"\ninfo:\n  title: \"skylightapi.coforgemufg.com - dev API\"\n  description: \"API Gateway for skylight-coforge.coforgemufg.com (dev) GraphQL endpoints\"\n  version: \"1.0.0\"\n\nschemes:\n  - https\nbasePath: \"/\"\n\npaths:\n  /graphql/rbac:\n    post:\n      summary: \"GraphQL endpoint for rbac service\"\n      consumes:\n        - application/json\n      produces:\n        - application/json\n      responses:\n        \"200\":\n          description: \"GraphQL response\"\n      x-amazon-apigateway-integration:\n        type: \"aws_proxy\"\n        httpMethod: \"POST\"\n        # 👇 IMPORTANT: This must be the API Gateway invoke URI (not just function ARN)\n        uri: \"arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-rbac/invocations\"\n        passthroughBehavior: \"when_no_match\"\n        timeoutInMillis: 29000\n        contentHandling: \"CONVERT_TO_TEXT\"\n\n    options:\n      summary: \"CORS preflight for rbac service\"\n      consumes:\n        - application/json\n      produces:\n        - application/json\n      responses:\n        \"200\":\n          description: \"CORS headers\"\n          headers:\n            Access-Control-Allow-Origin:\n              type: \"string\"\n            Access-Control-Allow-Headers:\n              type: \"string\"\n            Access-Control-Allow-Methods:\n              type: \"string\"\n      x-amazon-apigateway-integration:\n        type: \"mock\"\n        requestTemplates:\n          application/json: |\n            { \"statusCode\": 200 }\n        responses:\n          default:\n            statusCode: \"200\"\n            responseParameters:\n              method.response.header.Access-Control-Allow-Origin: \"'https://skylight-coforge.coforgemufg.com'\"\n              method.response.header.Access-Control-Allow-Headers: \"'Content-Type,Authorization'\"\n              method.response.header.Access-Control-Allow-Methods: \"'GET,POST,OPTIONS'\"\n  /graphql/client:\n    post:\n      summary: \"GraphQL endpoint for client service\"\n      consumes:\n        - application/json\n      produces:\n        - application/json\n      responses:\n        \"200\":\n          description: \"GraphQL response\"\n      x-amazon-apigateway-integration:\n        type: \"aws_proxy\"\n        httpMethod: \"POST\"\n        # 👇 IMPORTANT: This must be the API Gateway invoke URI (not just function ARN)\n        uri: \"arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-client/invocations\"\n        passthroughBehavior: \"when_no_match\"\n        timeoutInMillis: 29000\n        contentHandling: \"CONVERT_TO_TEXT\"\n\n    options:\n      summary: \"CORS preflight for client service\"\n      consumes:\n        - application/json\n      produces:\n        - application/json\n      responses:\n        \"200\":\n          description: \"CORS headers\"\n          headers:\n            Access-Control-Allow-Origin:\n              type: \"string\"\n            Access-Control-Allow-Headers:\n              type: \"string\"\n            Access-Control-Allow-Methods:\n              type: \"string\"\n      x-amazon-apigateway-integration:\n        type: \"mock\"\n        requestTemplates:\n          application/json: |\n            { \"statusCode\": 200 }\n        responses:\n          default:\n            statusCode: \"200\"\n            responseParameters:\n              method.response.header.Access-Control-Allow-Origin: \"'https://skylight-coforge.coforgemufg.com'\"\n              method.response.header.Access-Control-Allow-Headers: \"'Content-Type,Authorization'\"\n              method.response.header.Access-Control-Allow-Methods: \"'GET,POST,OPTIONS'\"\n  /graphql/fund:\n    post:\n      summary: \"GraphQL endpoint for fund service\"\n      consumes:\n        - application/json\n      produces:\n        - application/json\n      responses:\n        \"200\":\n          description: \"GraphQL response\"\n      x-amazon-apigateway-integration:\n        type: \"aws_proxy\"\n        httpMethod: \"POST\"\n        # 👇 IMPORTANT: This must be the API Gateway invoke URI (not just function ARN)\n        uri: \"arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-fund/invocations\"\n        passthroughBehavior: \"when_no_match\"\n        timeoutInMillis: 29000\n        contentHandling: \"CONVERT_TO_TEXT\"\n\n    options:\n      summary: \"CORS preflight for fund service\"\n      consumes:\n        - application/json\n      produces:\n        - application/json\n      responses:\n        \"200\":\n          description: \"CORS headers\"\n          headers:\n            Access-Control-Allow-Origin:\n              type: \"string\"\n            Access-Control-Allow-Headers:\n              type: \"string\"\n            Access-Control-Allow-Methods:\n              type: \"string\"\n      x-amazon-apigateway-integration:\n        type: \"mock\"\n        requestTemplates:\n          application/json: |\n            { \"statusCode\": 200 }\n        responses:\n          default:\n            statusCode: \"200\"\n            responseParameters:\n              method.response.header.Access-Control-Allow-Origin: \"'https://skylight-coforge.coforgemufg.com'\"\n              method.response.header.Access-Control-Allow-Headers: \"'Content-Type,Authorization'\"\n              method.response.header.Access-Control-Allow-Methods: \"'GET,POST,OPTIONS'\"\n  /graphql/sla:\n    post:\n      summary: \"GraphQL endpoint for sla service\"\n      consumes:\n        - application/json\n      produces:\n        - application/json\n      responses:\n        \"200\":\n          description: \"GraphQL response\"\n      x-amazon-apigateway-integration:\n        type: \"aws_proxy\"\n        httpMethod: \"POST\"\n        # 👇 IMPORTANT: This must be the API Gateway invoke URI (not just function ARN)\n        uri: \"arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-sla/invocations\"\n        passthroughBehavior: \"when_no_match\"\n        timeoutInMillis: 29000\n        contentHandling: \"CONVERT_TO_TEXT\"\n\n    options:\n      summary: \"CORS preflight for sla service\"\n      consumes:\n        - application/json\n      produces:\n        - application/json\n      responses:\n        \"200\":\n          description: \"CORS headers\"\n          headers:\n            Access-Control-Allow-Origin:\n              type: \"string\"\n            Access-Control-Allow-Headers:\n              type: \"string\"\n            Access-Control-Allow-Methods:\n              type: \"string\"\n      x-amazon-apigateway-integration:\n        type: \"mock\"\n        requestTemplates:\n          application/json: |\n            { \"statusCode\": 200 }\n        responses:\n          default:\n            statusCode: \"200\"\n            responseParameters:\n              method.response.header.Access-Control-Allow-Origin: \"'https://skylight-coforge.coforgemufg.com'\"\n              method.response.header.Access-Control-Allow-Headers: \"'Content-Type,Authorization'\"\n              method.response.header.Access-Control-Allow-Methods: \"'GET,POST,OPTIONS'\"\n  /graphql/deliverables:\n    post:\n      summary: \"GraphQL endpoint for deliverables service\"\n      consumes:\n        - application/json\n      produces:\n        - application/json\n      responses:\n        \"200\":\n          description: \"GraphQL response\"\n      x-amazon-apigateway-integration:\n        type: \"aws_proxy\"\n        httpMethod: \"POST\"\n        # 👇 IMPORTANT: This must be the API Gateway invoke URI (not just function ARN)\n        uri: \"arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-deliverables/invocations\"\n        passthroughBehavior: \"when_no_match\"\n        timeoutInMillis: 29000\n        contentHandling: \"CONVERT_TO_TEXT\"\n\n    options:\n      summary: \"CORS preflight for deliverables service\"\n      consumes:\n        - application/json\n      produces:\n        - application/json\n      responses:\n        \"200\":\n          description: \"CORS headers\"\n          headers:\n            Access-Control-Allow-Origin:\n              type: \"string\"\n            Access-Control-Allow-Headers:\n              type: \"string\"\n            Access-Control-Allow-Methods:\n              type: \"string\"\n      x-amazon-apigateway-integration:\n        type: \"mock\"\n        requestTemplates:\n          application/json: |\n            { \"statusCode\": 200 }\n        responses:\n          default:\n            statusCode: \"200\"\n            responseParameters:\n              method.response.header.Access-Control-Allow-Origin: \"'https://skylight-coforge.coforgemufg.com'\"\n              method.response.header.Access-Control-Allow-Headers: \"'Content-Type,Authorization'\"\n              method.response.header.Access-Control-Allow-Methods: \"'GET,POST,OPTIONS'\"\n\n# Optional global CORS helper (REST ignores some OAS3 CORS, but keeping for clarity)\nx-amazon-apigateway-cors:\n  allowOrigins:\n    - \"https://skylight-coforge.coforgemufg.com\"\n  allowHeaders:\n    - \"Content-Type\"\n    - \"Authorization\"\n  allowMethods:\n    - \"GET\"\n    - \"POST\"\n    - \"OPTIONS\"\n  allowCredentials: false\n  maxAge: 86400\n",
+            "created_date": "2026-01-09T20:39:04Z",
+            "description": "REST API for skylight-dev-rest-api",
+            "disable_execute_api_endpoint": false,
+            "endpoint_configuration": [
+              {
+                "ip_address_type": "ipv4",
+                "types": [
+                  "REGIONAL"
+                ],
+                "vpc_endpoint_ids": []
+              }
+            ],
+            "execution_arn": "arn:aws:execute-api:eu-west-1:700672899528:508x7bzork",
+            "fail_on_warnings": null,
+            "id": "508x7bzork",
+            "minimum_compression_size": "",
+            "name": "skylight-dev-rest-api",
+            "parameters": null,
+            "policy": "",
+            "put_rest_api_mode": null,
+            "root_resource_id": "k343g3q092",
+            "tags": {
+              "Environment": "dev",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Owner": "platform",
+              "Project": "skylight"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "data.aws_region.current",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.api_gw",
+      "mode": "managed",
+      "type": "aws_api_gateway_stage",
+      "name": "prod",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_log_settings": [],
+            "arn": "arn:aws:apigateway:eu-west-1::/restapis/508x7bzork/stages/prod",
+            "cache_cluster_enabled": false,
+            "cache_cluster_size": "",
+            "canary_settings": [],
+            "client_certificate_id": "",
+            "deployment_id": "9q80qf",
+            "description": "",
+            "documentation_version": "",
+            "execution_arn": "arn:aws:execute-api:eu-west-1:700672899528:508x7bzork/prod",
+            "id": "ags-508x7bzork-prod",
+            "invoke_url": "https://508x7bzork.execute-api.eu-west-1.amazonaws.com/prod",
+            "rest_api_id": "508x7bzork",
+            "stage_name": "prod",
+            "tags": {
+              "Environment": "dev",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "variables": {},
+            "web_acl_arn": "",
+            "xray_tracing_enabled": false
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "data.aws_region.current",
+            "module.api_gw.aws_api_gateway_deployment.this",
+            "module.api_gw.aws_api_gateway_rest_api.this",
+            "module.lambda.aws_lambda_function.this",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.api_gw",
+      "mode": "managed",
+      "type": "aws_apigatewayv2_api",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_endpoint": "https://87bu1fsx78.execute-api.eu-west-1.amazonaws.com",
+            "api_key_selection_expression": "$request.header.x-api-key",
+            "arn": "arn:aws:apigateway:eu-west-1::/apis/87bu1fsx78",
+            "body": null,
+            "cors_configuration": [
+              {
+                "allow_credentials": false,
+                "allow_headers": [
+                  "authorization",
+                  "content-type",
+                  "x-amz-date",
+                  "x-amz-security-token",
+                  "x-api-key"
+                ],
+                "allow_methods": [
+                  "DELETE",
+                  "GET",
+                  "OPTIONS",
+                  "POST",
+                  "PUT"
+                ],
+                "allow_origins": [
+                  "*"
+                ],
+                "expose_headers": [
+                  "date",
+                  "keep-alive"
+                ],
+                "max_age": 86400
+              }
+            ],
+            "credentials_arn": null,
+            "description": "HTTP API for Skylight-dev-rest-api",
+            "disable_execute_api_endpoint": false,
+            "execution_arn": "arn:aws:execute-api:eu-west-1:700672899528:87bu1fsx78",
+            "fail_on_warnings": null,
+            "id": "87bu1fsx78",
+            "ip_address_type": "ipv4",
+            "name": "Skylight-dev-rest-api",
+            "protocol_type": "HTTP",
+            "route_key": null,
+            "route_selection_expression": "$request.method $request.path",
+            "tags": {
+              "Environment": "dev",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "target": null,
+            "version": ""
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.api_gw",
+      "mode": "managed",
+      "type": "aws_apigatewayv2_stage",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_log_settings": [],
+            "api_id": "87bu1fsx78",
+            "arn": "arn:aws:apigateway:eu-west-1::/apis/87bu1fsx78/stages/$default",
+            "auto_deploy": true,
+            "client_certificate_id": "",
+            "default_route_settings": [
+              {
+                "data_trace_enabled": false,
+                "detailed_metrics_enabled": true,
+                "logging_level": "",
+                "throttling_burst_limit": 100,
+                "throttling_rate_limit": 50
+              }
+            ],
+            "deployment_id": "",
+            "description": "",
+            "execution_arn": "arn:aws:execute-api:eu-west-1:700672899528:87bu1fsx78/$default",
+            "id": "$default",
+            "invoke_url": "https://87bu1fsx78.execute-api.eu-west-1.amazonaws.com/",
+            "name": "$default",
+            "route_settings": [],
+            "stage_variables": {},
+            "tags": {
+              "Environment": "dev",
+              "Owner": "platform",
+              "Project": "skylight"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Owner": "platform",
+              "Project": "skylight"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.api_gw.aws_apigatewayv2_api.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cloudfront",
+      "mode": "managed",
+      "type": "aws_cloudfront_distribution",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "aliases": [
+              "skylight-coforge.coforgemufg.com"
+            ],
+            "arn": "arn:aws:cloudfront::700672899528:distribution/E1QRJPPCHPNY4C",
+            "caller_reference": "terraform-20251223074955773400000001",
+            "comment": "skylight-dev-frontend-distribution",
+            "continuous_deployment_policy_id": "",
+            "custom_error_response": [
+              {
+                "error_caching_min_ttl": 10,
+                "error_code": 404,
+                "response_code": 200,
+                "response_page_path": "/index.html"
+              }
+            ],
+            "default_cache_behavior": [
+              {
+                "allowed_methods": [
+                  "GET",
+                  "HEAD",
+                  "OPTIONS"
+                ],
+                "cache_policy_id": "",
+                "cached_methods": [
+                  "GET",
+                  "HEAD"
+                ],
+                "compress": true,
+                "default_ttl": 3600,
+                "field_level_encryption_id": "",
+                "forwarded_values": [
+                  {
+                    "cookies": [
+                      {
+                        "forward": "none",
+                        "whitelisted_names": []
+                      }
+                    ],
+                    "headers": [
+                      "Access-Control-Request-Headers",
+                      "Access-Control-Request-Method",
+                      "Origin"
+                    ],
+                    "query_string": false,
+                    "query_string_cache_keys": []
+                  }
+                ],
+                "function_association": [],
+                "grpc_config": [
+                  {
+                    "enabled": false
+                  }
+                ],
+                "lambda_function_association": [],
+                "max_ttl": 86400,
+                "min_ttl": 0,
+                "origin_request_policy_id": "",
+                "realtime_log_config_arn": "",
+                "response_headers_policy_id": "",
+                "smooth_streaming": false,
+                "target_origin_id": "s3-origin",
+                "trusted_key_groups": [],
+                "trusted_signers": [],
+                "viewer_protocol_policy": "redirect-to-https"
+              }
+            ],
+            "default_root_object": "index.html",
+            "domain_name": "d36v3w4adzmr25.cloudfront.net",
+            "enabled": true,
+            "etag": "E3RH1HK0V0LLDD",
+            "hosted_zone_id": "Z2FDTNDATAQYW2",
+            "http_version": "http2",
+            "id": "E1QRJPPCHPNY4C",
+            "in_progress_validation_batches": 0,
+            "is_ipv6_enabled": true,
+            "last_modified_time": "2025-12-23 07:49:55.927 +0000 UTC",
+            "logging_config": [],
+            "ordered_cache_behavior": [],
+            "origin": [
+              {
+                "connection_attempts": 3,
+                "connection_timeout": 10,
+                "custom_header": [],
+                "custom_origin_config": [],
+                "domain_name": "s3-euw1-skylight-dev-frontend-new.s3.amazonaws.com",
+                "origin_access_control_id": "E1DO3A98362T1L",
+                "origin_id": "s3-origin",
+                "origin_path": "",
+                "origin_shield": [],
+                "s3_origin_config": [],
+                "vpc_origin_config": []
+              }
+            ],
+            "origin_group": [],
+            "price_class": "PriceClass_All",
+            "restrictions": [
+              {
+                "geo_restriction": [
+                  {
+                    "locations": [],
+                    "restriction_type": "none"
+                  }
+                ]
+              }
+            ],
+            "retain_on_delete": false,
+            "staging": false,
+            "status": "Deployed",
+            "tags": {
+              "Name": "skylight-dev-frontend-cloudfront"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-frontend-cloudfront"
+            },
+            "trusted_key_groups": [
+              {
+                "enabled": false,
+                "items": []
+              }
+            ],
+            "trusted_signers": [
+              {
+                "enabled": false,
+                "items": []
+              }
+            ],
+            "viewer_certificate": [
+              {
+                "acm_certificate_arn": "arn:aws:acm:us-east-1:700672899528:certificate/b45a3b57-473b-40cb-b740-fac22cdd1abe",
+                "cloudfront_default_certificate": false,
+                "iam_certificate_id": "",
+                "minimum_protocol_version": "TLSv1.2_2021",
+                "ssl_support_method": "sni-only"
+              }
+            ],
+            "wait_for_deployment": true,
+            "web_acl_id": "arn:aws:wafv2:us-east-1:700672899528:global/webacl/skylight-dev-cloudfront-waf-v2/dfacd25f-82dc-48f3-8012-b6e3b502e5ea"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "module.cloudfront.aws_cloudfront_origin_access_control.this",
+            "module.cloudfront_bucket.aws_s3_bucket.this",
+            "module.cloudfront_waf.aws_wafv2_ip_set.allowed_ips",
+            "module.cloudfront_waf.aws_wafv2_web_acl.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cloudfront",
+      "mode": "managed",
+      "type": "aws_cloudfront_origin_access_control",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:cloudfront::700672899528:origin-access-control/E1DO3A98362T1L",
+            "description": "Origin Access Control for skylight dev S3",
+            "etag": "ETVPDKIKX0DER",
+            "id": "E1DO3A98362T1L",
+            "name": "skylight-dev-oac-new",
+            "origin_access_control_origin_type": "s3",
+            "signing_behavior": "always",
+            "signing_protocol": "sigv4"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.cloudfront",
+      "mode": "managed",
+      "type": "aws_s3_bucket_policy",
+      "name": "cloudfront_access",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "s3-euw1-skylight-dev-frontend-new",
+            "id": "s3-euw1-skylight-dev-frontend-new",
+            "policy": "{\"Statement\":[{\"Action\":[\"s3:GetObject\",\"s3:ListBucket\"],\"Condition\":{\"StringEquals\":{\"AWS:SourceArn\":\"arn:aws:cloudfront::700672899528:distribution/E1QRJPPCHPNY4C\"}},\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Resource\":[\"arn:aws:s3:::s3-euw1-skylight-dev-frontend-new\",\"arn:aws:s3:::s3-euw1-skylight-dev-frontend-new/*\"],\"Sid\":\"AllowCloudFrontServicePrincipal\"}],\"Version\":\"2012-10-17\"}"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.cloudfront.aws_cloudfront_distribution.this",
+            "module.cloudfront.aws_cloudfront_origin_access_control.this",
+            "module.cloudfront_bucket.aws_s3_bucket.this",
+            "module.cloudfront_waf.aws_wafv2_ip_set.allowed_ips",
+            "module.cloudfront_waf.aws_wafv2_web_acl.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cloudfront_bucket",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::s3-euw1-skylight-dev-frontend-new",
+            "bucket": "s3-euw1-skylight-dev-frontend-new",
+            "bucket_domain_name": "s3-euw1-skylight-dev-frontend-new.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "s3-euw1-skylight-dev-frontend-new.s3.eu-west-1.amazonaws.com",
+            "cors_rule": [
+              {
+                "allowed_headers": [
+                  "Origin",
+                  "Accept",
+                  "Authorization",
+                  "X-Requested-With",
+                  "Content-Type"
+                ],
+                "allowed_methods": [
+                  "GET",
+                  "HEAD"
+                ],
+                "allowed_origins": [
+                  "https://skylight-coforge.coforgemufg.com"
+                ],
+                "expose_headers": [],
+                "max_age_seconds": 3600
+              }
+            ],
+            "force_destroy": true,
+            "grant": [
+              {
+                "id": "214b55552393a9ff84a61f343317d4e6ebd279875dc984a453dc231de1f880b8",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z1BKCTXD74EZPE",
+            "id": "s3-euw1-skylight-dev-frontend-new",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "{\"Statement\":[{\"Action\":[\"s3:GetObject\",\"s3:ListBucket\"],\"Condition\":{\"StringEquals\":{\"AWS:SourceArn\":\"arn:aws:cloudfront::700672899528:distribution/E1QRJPPCHPNY4C\"}},\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudfront.amazonaws.com\"},\"Resource\":[\"arn:aws:s3:::s3-euw1-skylight-dev-frontend-new\",\"arn:aws:s3:::s3-euw1-skylight-dev-frontend-new/*\"],\"Sid\":\"AllowCloudFrontServicePrincipal\"}],\"Version\":\"2012-10-17\"}",
+            "region": "eu-west-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "dev",
+              "Name": "s3-euw1-skylight-dev-frontend-new",
+              "Project": "skylight",
+              "Purpose": "CloudFront frontend content"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "s3-euw1-skylight-dev-frontend-new",
+              "Project": "skylight",
+              "Purpose": "CloudFront frontend content"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": true,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "module": "module.cloudfront_bucket",
+      "mode": "managed",
+      "type": "aws_s3_bucket_cors_configuration",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "s3-euw1-skylight-dev-frontend-new",
+            "cors_rule": [
+              {
+                "allowed_headers": [
+                  "Accept",
+                  "Authorization",
+                  "Content-Type",
+                  "Origin",
+                  "X-Requested-With"
+                ],
+                "allowed_methods": [
+                  "GET",
+                  "HEAD"
+                ],
+                "allowed_origins": [
+                  "https://skylight-coforge.coforgemufg.com"
+                ],
+                "expose_headers": [],
+                "id": "",
+                "max_age_seconds": 3600
+              }
+            ],
+            "expected_bucket_owner": "",
+            "id": "s3-euw1-skylight-dev-frontend-new"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.cloudfront_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cloudfront_bucket",
+      "mode": "managed",
+      "type": "aws_s3_bucket_public_access_block",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "block_public_acls": true,
+            "block_public_policy": true,
+            "bucket": "s3-euw1-skylight-dev-frontend-new",
+            "id": "s3-euw1-skylight-dev-frontend-new",
+            "ignore_public_acls": true,
+            "restrict_public_buckets": true
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.cloudfront_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cloudfront_bucket",
+      "mode": "managed",
+      "type": "aws_s3_bucket_versioning",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "s3-euw1-skylight-dev-frontend-new",
+            "expected_bucket_owner": "",
+            "id": "s3-euw1-skylight-dev-frontend-new",
+            "mfa": null,
+            "versioning_configuration": [
+              {
+                "mfa_delete": "",
+                "status": "Enabled"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.cloudfront_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cloudfront_waf[0]",
+      "mode": "managed",
+      "type": "aws_wafv2_web_acl",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"].us_east_1",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "application_integration_url": "",
+            "arn": "arn:aws:wafv2:us-east-1:700672899528:global/webacl/skylight-dev-cloudfront-waf-v2/dfacd25f-82dc-48f3-8012-b6e3b502e5ea",
+            "association_config": [],
+            "capacity": 0,
+            "captcha_config": [],
+            "challenge_config": [],
+            "custom_response_body": [],
+            "data_protection_config": [],
+            "default_action": [
+              {
+                "allow": [
+                  {
+                    "custom_request_handling": []
+                  }
+                ],
+                "block": []
+              }
+            ],
+            "description": "CloudFront WAF Web ACL",
+            "id": "dfacd25f-82dc-48f3-8012-b6e3b502e5ea",
+            "lock_token": "19091440-6daf-47a4-959a-57db15c57a45",
+            "name": "skylight-dev-cloudfront-waf-v2",
+            "name_prefix": "",
+            "rule": [],
+            "rule_json": null,
+            "scope": "CLOUDFRONT",
+            "tags": {},
+            "tags_all": {},
+            "token_domains": [],
+            "visibility_config": [
+              {
+                "cloudwatch_metrics_enabled": true,
+                "metric_name": "skylight-dev-cloudfront-waf-v2",
+                "sampled_requests_enabled": true
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.cloudfront_waf.aws_wafv2_ip_set.allowed_ips"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.eventbridge",
+      "mode": "managed",
+      "type": "aws_cloudwatch_event_bus",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:events:eu-west-1:700672899528:event-bus/skylight-dev-bus-new",
+            "dead_letter_config": [],
+            "description": "",
+            "event_source_name": null,
+            "id": "skylight-dev-bus-new",
+            "kms_key_identifier": "",
+            "name": "skylight-dev-bus-new",
+            "tags": {
+              "Name": "skylight-dev-eventbridge"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-eventbridge"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.lambda[\"client\"]",
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-client",
+            "code_sha256": "e3dN1cr5PpngrO90/OrT0+jWVist1SoJzyy5Ao4o0xU=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [
+              {
+                "variables": {
+                  "BACKEND_SECRET_ARN": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/backend/d/skylight-J0Lnhn",
+                  "FRONTEND_SECRET_ARN": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/frontend/d/skylight-b6Kvuv",
+                  "PROJECT": "skylight",
+                  "RDS_ENDPOINT": "skylight-dev-db-new.c5qcweas2g2d.eu-west-1.rds.amazonaws.com:5432",
+                  "RDS_PORT": "5432",
+                  "RDS_SSL_CERT_S3_PATH": "s3://s3-euw1-skylight-dev-ssl-certs-new/global-bundle.pem",
+                  "RDS_SSL_MODE": "require",
+                  "STAGE": "dev"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./lambda_functions/client.zip",
+            "function_name": "skylight-dev-lambda-client",
+            "handler": "src/lambda.handler",
+            "id": "skylight-dev-lambda-client",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-client/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2025-12-23T11:02:11.037+0000",
+            "layers": [],
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/skylight-dev-lambda-client",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-client:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-client:$LATEST/invocations",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": 5,
+            "role": "arn:aws:iam::700672899528:role/skylight-dev-lambda-exec-role",
+            "runtime": "nodejs22.x",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "e3dN1cr5PpngrO90/OrT0+jWVist1SoJzyy5Ao4o0xU=",
+            "source_code_size": 177,
+            "tags": {
+              "Name": "skylight-dev-lambda-client"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-client"
+            },
+            "timeout": 15,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": [
+              {
+                "ipv6_allowed_for_dual_stack": false,
+                "security_group_ids": [
+                  "sg-063e1debeb6433821"
+                ],
+                "subnet_ids": [
+                  "subnet-03c56e8fcd78d4259",
+                  "subnet-0ffaa9cc7b9b0fc97"
+                ],
+                "vpc_id": "vpc-05b23b23361ecd1c3"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lambda[\"deliverables\"]",
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-deliverables",
+            "code_sha256": "g3sDtOKIOdKJseJShEMNUHHNil6hapnPbh3xS7jqulA=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [
+              {
+                "variables": {
+                  "BACKEND_SECRET_ARN": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/backend/d/skylight-J0Lnhn",
+                  "FRONTEND_SECRET_ARN": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/frontend/d/skylight-b6Kvuv",
+                  "PROJECT": "skylight",
+                  "RDS_ENDPOINT": "skylight-dev-db-new.c5qcweas2g2d.eu-west-1.rds.amazonaws.com:5432",
+                  "RDS_PORT": "5432",
+                  "RDS_SSL_CERT_S3_PATH": "s3://s3-euw1-skylight-dev-ssl-certs-new/global-bundle.pem",
+                  "RDS_SSL_MODE": "require",
+                  "STAGE": "dev"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./lambda_functions/deliverables.zip",
+            "function_name": "skylight-dev-lambda-deliverables",
+            "handler": "src/lambda.handler",
+            "id": "skylight-dev-lambda-deliverables",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-deliverables/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2025-12-23T11:01:57.173+0000",
+            "layers": [],
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/skylight-dev-lambda-deliverables",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-deliverables:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-deliverables:$LATEST/invocations",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": 5,
+            "role": "arn:aws:iam::700672899528:role/skylight-dev-lambda-exec-role",
+            "runtime": "nodejs22.x",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "g3sDtOKIOdKJseJShEMNUHHNil6hapnPbh3xS7jqulA=",
+            "source_code_size": 189,
+            "tags": {
+              "Name": "skylight-dev-lambda-deliverables"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-deliverables"
+            },
+            "timeout": 15,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": [
+              {
+                "ipv6_allowed_for_dual_stack": false,
+                "security_group_ids": [
+                  "sg-063e1debeb6433821"
+                ],
+                "subnet_ids": [
+                  "subnet-03c56e8fcd78d4259",
+                  "subnet-0ffaa9cc7b9b0fc97"
+                ],
+                "vpc_id": "vpc-05b23b23361ecd1c3"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lambda[\"fund\"]",
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-fund",
+            "code_sha256": "qS2TJNBZncCtPUVQfi1bhJlELN/y34jTCPDYE3ivFOc=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [
+              {
+                "variables": {
+                  "BACKEND_SECRET_ARN": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/backend/d/skylight-J0Lnhn",
+                  "FRONTEND_SECRET_ARN": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/frontend/d/skylight-b6Kvuv",
+                  "PROJECT": "skylight",
+                  "RDS_ENDPOINT": "skylight-dev-db-new.c5qcweas2g2d.eu-west-1.rds.amazonaws.com:5432",
+                  "RDS_PORT": "5432",
+                  "RDS_SSL_CERT_S3_PATH": "s3://s3-euw1-skylight-dev-ssl-certs-new/global-bundle.pem",
+                  "RDS_SSL_MODE": "require",
+                  "STAGE": "dev"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./lambda_functions/fund.zip",
+            "function_name": "skylight-dev-lambda-fund",
+            "handler": "src/lambda.handler",
+            "id": "skylight-dev-lambda-fund",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-fund/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2025-12-23T11:02:17.951+0000",
+            "layers": [],
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/skylight-dev-lambda-fund",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-fund:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-fund:$LATEST/invocations",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": 5,
+            "role": "arn:aws:iam::700672899528:role/skylight-dev-lambda-exec-role",
+            "runtime": "nodejs22.x",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "qS2TJNBZncCtPUVQfi1bhJlELN/y34jTCPDYE3ivFOc=",
+            "source_code_size": 173,
+            "tags": {
+              "Name": "skylight-dev-lambda-fund"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-fund"
+            },
+            "timeout": 15,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": [
+              {
+                "ipv6_allowed_for_dual_stack": false,
+                "security_group_ids": [
+                  "sg-063e1debeb6433821"
+                ],
+                "subnet_ids": [
+                  "subnet-03c56e8fcd78d4259",
+                  "subnet-0ffaa9cc7b9b0fc97"
+                ],
+                "vpc_id": "vpc-05b23b23361ecd1c3"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lambda[\"rbac\"]",
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-rbac",
+            "code_sha256": "Au/rE+3q/IsMvokpdeEvcxE4zauyS7zB2AZQeGf3DBg=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [
+              {
+                "variables": {
+                  "BACKEND_SECRET_ARN": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/backend/d/skylight-J0Lnhn",
+                  "FRONTEND_SECRET_ARN": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/frontend/d/skylight-b6Kvuv",
+                  "PROJECT": "skylight",
+                  "RDS_ENDPOINT": "skylight-dev-db-new.c5qcweas2g2d.eu-west-1.rds.amazonaws.com:5432",
+                  "RDS_PORT": "5432",
+                  "RDS_SSL_CERT_S3_PATH": "s3://s3-euw1-skylight-dev-ssl-certs-new/global-bundle.pem",
+                  "RDS_SSL_MODE": "require",
+                  "STAGE": "dev"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./lambda_functions/rbac.zip",
+            "function_name": "skylight-dev-lambda-rbac",
+            "handler": "src/lambda.handler",
+            "id": "skylight-dev-lambda-rbac",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-rbac/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2025-12-23T10:58:53.409+0000",
+            "layers": [],
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/skylight-dev-lambda-rbac",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-rbac:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-rbac:$LATEST/invocations",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": 5,
+            "role": "arn:aws:iam::700672899528:role/skylight-dev-lambda-exec-role",
+            "runtime": "nodejs22.x",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "Au/rE+3q/IsMvokpdeEvcxE4zauyS7zB2AZQeGf3DBg=",
+            "source_code_size": 173,
+            "tags": {
+              "Name": "skylight-dev-lambda-rbac"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-rbac"
+            },
+            "timeout": 40,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": [
+              {
+                "ipv6_allowed_for_dual_stack": false,
+                "security_group_ids": [
+                  "sg-063e1debeb6433821"
+                ],
+                "subnet_ids": [
+                  "subnet-03c56e8fcd78d4259",
+                  "subnet-0ffaa9cc7b9b0fc97"
+                ],
+                "vpc_id": "vpc-05b23b23361ecd1c3"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lambda[\"sla\"]",
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-sla",
+            "code_sha256": "5gLUIE5fnMHK3/r/XSjg2M5CZrQcyFLANgem9irCVbA=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [
+              {
+                "variables": {
+                  "BACKEND_SECRET_ARN": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/backend/d/skylight-J0Lnhn",
+                  "FRONTEND_SECRET_ARN": "arn:aws:secretsmanager:eu-west-1:700672899528:secret:/mufgis/app/frontend/d/skylight-b6Kvuv",
+                  "PROJECT": "skylight",
+                  "RDS_ENDPOINT": "skylight-dev-db-new.c5qcweas2g2d.eu-west-1.rds.amazonaws.com:5432",
+                  "RDS_PORT": "5432",
+                  "RDS_SSL_CERT_S3_PATH": "s3://s3-euw1-skylight-dev-ssl-certs-new/global-bundle.pem",
+                  "RDS_SSL_MODE": "require",
+                  "STAGE": "dev"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./lambda_functions/sla.zip",
+            "function_name": "skylight-dev-lambda-sla",
+            "handler": "src/lambda.handler",
+            "id": "skylight-dev-lambda-sla",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-sla/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2025-12-23T11:02:04.171+0000",
+            "layers": [],
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/skylight-dev-lambda-sla",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-sla:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:700672899528:function:skylight-dev-lambda-sla:$LATEST/invocations",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": 5,
+            "role": "arn:aws:iam::700672899528:role/skylight-dev-lambda-exec-role",
+            "runtime": "nodejs22.x",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "5gLUIE5fnMHK3/r/XSjg2M5CZrQcyFLANgem9irCVbA=",
+            "source_code_size": 171,
+            "tags": {
+              "Name": "skylight-dev-lambda-sla"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-sla"
+            },
+            "timeout": 15,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": [
+              {
+                "ipv6_allowed_for_dual_stack": false,
+                "security_group_ids": [
+                  "sg-063e1debeb6433821"
+                ],
+                "subnet_ids": [
+                  "subnet-03c56e8fcd78d4259",
+                  "subnet-0ffaa9cc7b9b0fc97"
+                ],
+                "vpc_id": "vpc-05b23b23361ecd1c3"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_iam_role.lambda_exec",
+            "aws_secretsmanager_secret.app_backend_secrets",
+            "aws_secretsmanager_secret.app_frontend_secrets",
+            "module.rds.aws_db_instance.this",
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg",
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.lambda_log_groups[\"client\"]",
+      "mode": "managed",
+      "type": "aws_cloudwatch_log_group",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:logs:eu-west-1:700672899528:log-group:/aws/lambda/skylight-dev-lambda-client",
+            "id": "/aws/lambda/skylight-dev-lambda-client",
+            "kms_key_id": "",
+            "log_group_class": "STANDARD",
+            "name": "/aws/lambda/skylight-dev-lambda-client",
+            "name_prefix": "",
+            "retention_in_days": 14,
+            "skip_destroy": false,
+            "tags": {
+              "Name": "skylight-dev-lambda-log-group-client"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-log-group-client"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.lambda_log_groups[\"deliverables\"]",
+      "mode": "managed",
+      "type": "aws_cloudwatch_log_group",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:logs:eu-west-1:700672899528:log-group:/aws/lambda/skylight-dev-lambda-deliverables",
+            "id": "/aws/lambda/skylight-dev-lambda-deliverables",
+            "kms_key_id": "",
+            "log_group_class": "STANDARD",
+            "name": "/aws/lambda/skylight-dev-lambda-deliverables",
+            "name_prefix": "",
+            "retention_in_days": 14,
+            "skip_destroy": false,
+            "tags": {
+              "Name": "skylight-dev-lambda-log-group-deliverables"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-log-group-deliverables"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.lambda_log_groups[\"fund\"]",
+      "mode": "managed",
+      "type": "aws_cloudwatch_log_group",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:logs:eu-west-1:700672899528:log-group:/aws/lambda/skylight-dev-lambda-fund",
+            "id": "/aws/lambda/skylight-dev-lambda-fund",
+            "kms_key_id": "",
+            "log_group_class": "STANDARD",
+            "name": "/aws/lambda/skylight-dev-lambda-fund",
+            "name_prefix": "",
+            "retention_in_days": 14,
+            "skip_destroy": false,
+            "tags": {
+              "Name": "skylight-dev-lambda-log-group-fund"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-log-group-fund"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.lambda_log_groups[\"rbac\"]",
+      "mode": "managed",
+      "type": "aws_cloudwatch_log_group",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:logs:eu-west-1:700672899528:log-group:/aws/lambda/skylight-dev-lambda-rbac",
+            "id": "/aws/lambda/skylight-dev-lambda-rbac",
+            "kms_key_id": "",
+            "log_group_class": "STANDARD",
+            "name": "/aws/lambda/skylight-dev-lambda-rbac",
+            "name_prefix": "",
+            "retention_in_days": 14,
+            "skip_destroy": false,
+            "tags": {
+              "Name": "skylight-dev-lambda-log-group-rbac"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-log-group-rbac"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.lambda_log_groups[\"sla\"]",
+      "mode": "managed",
+      "type": "aws_cloudwatch_log_group",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:logs:eu-west-1:700672899528:log-group:/aws/lambda/skylight-dev-lambda-sla",
+            "id": "/aws/lambda/skylight-dev-lambda-sla",
+            "kms_key_id": "",
+            "log_group_class": "STANDARD",
+            "name": "/aws/lambda/skylight-dev-lambda-sla",
+            "name_prefix": "",
+            "retention_in_days": 14,
+            "skip_destroy": false,
+            "tags": {
+              "Name": "skylight-dev-lambda-log-group-sla"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-lambda-log-group-sla"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.rds",
+      "mode": "managed",
+      "type": "aws_db_instance",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "address": "skylight-dev-db-new.c5qcweas2g2d.eu-west-1.rds.amazonaws.com",
+            "allocated_storage": 20,
+            "allow_major_version_upgrade": null,
+            "apply_immediately": false,
+            "arn": "arn:aws:rds:eu-west-1:700672899528:db:skylight-dev-db-new",
+            "auto_minor_version_upgrade": true,
+            "availability_zone": "eu-west-1a",
+            "backup_retention_period": 7,
+            "backup_target": "region",
+            "backup_window": "04:35-05:05",
+            "blue_green_update": [],
+            "ca_cert_identifier": "rds-ca-rsa2048-g1",
+            "character_set_name": "",
+            "copy_tags_to_snapshot": false,
+            "custom_iam_instance_profile": "",
+            "customer_owned_ip_enabled": false,
+            "database_insights_mode": "standard",
+            "db_name": "",
+            "db_subnet_group_name": "skylight-dev-db-new-db-subnets",
+            "dedicated_log_volume": false,
+            "delete_automated_backups": true,
+            "deletion_protection": false,
+            "domain": "",
+            "domain_auth_secret_arn": "",
+            "domain_dns_ips": [],
+            "domain_fqdn": "",
+            "domain_iam_role_name": "",
+            "domain_ou": "",
+            "enabled_cloudwatch_logs_exports": [],
+            "endpoint": "skylight-dev-db-new.c5qcweas2g2d.eu-west-1.rds.amazonaws.com:5432",
+            "engine": "postgres",
+            "engine_lifecycle_support": "open-source-rds-extended-support",
+            "engine_version": "17.4",
+            "engine_version_actual": "17.4",
+            "final_snapshot_identifier": null,
+            "hosted_zone_id": "Z29XKXDKYMONMX",
+            "iam_database_authentication_enabled": false,
+            "id": "db-BHZ52G2JFLCSAJ3EGHI7CNABH4",
+            "identifier": "skylight-dev-db-new",
+            "identifier_prefix": "",
+            "instance_class": "db.t3.medium",
+            "iops": 0,
+            "kms_key_id": "arn:aws:kms:eu-west-1:700672899528:key/d47eb502-5542-4d0f-99e9-b1658b09b7a1",
+            "latest_restorable_time": "2026-01-09T21:09:38Z",
+            "license_model": "postgresql-license",
+            "listener_endpoint": [],
+            "maintenance_window": "mon:01:04-mon:01:34",
+            "manage_master_user_password": null,
+            "master_user_secret": [],
+            "master_user_secret_kms_key_id": null,
+            "max_allocated_storage": 0,
+            "monitoring_interval": 0,
+            "monitoring_role_arn": "",
+            "multi_az": false,
+            "nchar_character_set_name": "",
+            "network_type": "IPV4",
+            "option_group_name": "default:postgres-17",
+            "parameter_group_name": "skylight-dev-db-new-pg174",
+            "password": "chetan_123",
+            "password_wo": null,
+            "password_wo_version": null,
+            "performance_insights_enabled": false,
+            "performance_insights_kms_key_id": "",
+            "performance_insights_retention_period": 0,
+            "port": 5432,
+            "publicly_accessible": false,
+            "replica_mode": "",
+            "replicas": [],
+            "replicate_source_db": "",
+            "resource_id": "db-BHZ52G2JFLCSAJ3EGHI7CNABH4",
+            "restore_to_point_in_time": [],
+            "s3_import": [],
+            "skip_final_snapshot": true,
+            "snapshot_identifier": null,
+            "status": "available",
+            "storage_encrypted": true,
+            "storage_throughput": 0,
+            "storage_type": "gp2",
+            "tags": {
+              "Name": "skylight-dev-rds-skylight-dev-db-new"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-rds-skylight-dev-db-new"
+            },
+            "timeouts": null,
+            "timezone": "",
+            "upgrade_storage_config": null,
+            "username": "chetan",
+            "vpc_security_group_ids": [
+              "sg-0674277edc14aed16"
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInVwZGF0ZSI6NDgwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMiJ9",
+          "dependencies": [
+            "module.rds.aws_db_parameter_group.this",
+            "module.rds.aws_db_subnet_group.this",
+            "module.rds.aws_security_group.rds_sg"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.rds",
+      "mode": "managed",
+      "type": "aws_db_parameter_group",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:rds:eu-west-1:700672899528:pg:skylight-dev-db-new-pg174",
+            "description": "Custom parameter group for skylight-dev-db-new",
+            "family": "postgres17",
+            "id": "skylight-dev-db-new-pg174",
+            "name": "skylight-dev-db-new-pg174",
+            "name_prefix": "",
+            "parameter": [
+              {
+                "apply_method": "pending-reboot",
+                "name": "autovacuum_analyze_scale_factor",
+                "value": "0.05"
+              },
+              {
+                "apply_method": "pending-reboot",
+                "name": "rds.force_ssl",
+                "value": "0"
+              }
+            ],
+            "skip_destroy": false,
+            "tags": {
+              "Name": "skylight-dev-rds-skylight-dev-db-new"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-rds-skylight-dev-db-new"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.rds",
+      "mode": "managed",
+      "type": "aws_db_subnet_group",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:rds:eu-west-1:700672899528:subgrp:skylight-dev-db-new-db-subnets",
+            "description": "Managed by Terraform",
+            "id": "skylight-dev-db-new-db-subnets",
+            "name": "skylight-dev-db-new-db-subnets",
+            "name_prefix": "",
+            "subnet_ids": [
+              "subnet-03c56e8fcd78d4259",
+              "subnet-0ffaa9cc7b9b0fc97"
+            ],
+            "supported_network_types": [
+              "IPV4"
+            ],
+            "tags": {
+              "Name": "skylight-dev-rds-skylight-dev-db-new"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-rds-skylight-dev-db-new"
+            },
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "module": "module.rds",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "rds_sg",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-west-1:700672899528:security-group/sg-0674277edc14aed16",
+            "description": "Security group for RDS, allows access only from VPC CIDR",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-0674277edc14aed16",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.100.23.0/24",
+                  "10.100.8.0/24"
+                ],
+                "description": "Allow RDS Connection from Global Protect IPS",
+                "from_port": 5432,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5432
+              },
+              {
+                "cidr_blocks": [
+                  "10.156.152.0/22"
+                ],
+                "description": "Inbound from Devops account for gitlab runners",
+                "from_port": 5432,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5432
+              }
+            ],
+            "name": "skylight-dev-rds-sg",
+            "name_prefix": "",
+            "owner_id": "700672899528",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "skylight-dev-rds-sg"
+            },
+            "tags_all": {
+              "Name": "skylight-dev-rds-sg"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-05b23b23361ecd1c3"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
+        }
+      ]
+    },
+    {
+      "module": "module.ssl_cert_bucket",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::s3-euw1-skylight-dev-ssl-certs-new",
+            "bucket": "s3-euw1-skylight-dev-ssl-certs-new",
+            "bucket_domain_name": "s3-euw1-skylight-dev-ssl-certs-new.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "s3-euw1-skylight-dev-ssl-certs-new.s3.eu-west-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": true,
+            "grant": [
+              {
+                "id": "214b55552393a9ff84a61f343317d4e6ebd279875dc984a453dc231de1f880b8",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z1BKCTXD74EZPE",
+            "id": "s3-euw1-skylight-dev-ssl-certs-new",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "eu-west-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "dev",
+              "Name": "s3-euw1-skylight-dev-ssl-certs-new",
+              "Project": "skylight",
+              "Purpose": "SSL certificate storage"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "s3-euw1-skylight-dev-ssl-certs-new",
+              "Project": "skylight",
+              "Purpose": "SSL certificate storage"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": true,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "module": "module.ssl_cert_bucket",
+      "mode": "managed",
+      "type": "aws_s3_bucket_public_access_block",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "block_public_acls": true,
+            "block_public_policy": true,
+            "bucket": "s3-euw1-skylight-dev-ssl-certs-new",
+            "id": "s3-euw1-skylight-dev-ssl-certs-new",
+            "ignore_public_acls": true,
+            "restrict_public_buckets": true
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.ssl_cert_bucket",
+      "mode": "managed",
+      "type": "aws_s3_bucket_versioning",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "s3-euw1-skylight-dev-ssl-certs-new",
+            "expected_bucket_owner": "",
+            "id": "s3-euw1-skylight-dev-ssl-certs-new",
+            "mfa": null,
+            "versioning_configuration": [
+              {
+                "mfa_delete": "",
+                "status": "Enabled"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.ssl_cert_bucket.aws_s3_bucket.this"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

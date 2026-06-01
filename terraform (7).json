@@ -1,0 +1,229 @@
+{
+  "version": 4,
+  "terraform_version": "1.4.2",
+  "serial": 1,
+  "lineage": "41b98ab8-4645-2fde-639c-6fd291068b56",
+  "outputs": {
+    "rest_api_id": {
+      "value": "9fzz23p3ph",
+      "type": "string"
+    },
+    "root_resource_id": {
+      "value": "0te74wd2nl",
+      "type": "string"
+    },
+    "stage_name": {
+      "value": "prod",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "aws_region",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Europe (Ireland)",
+            "endpoint": "ec2.eu-west-1.amazonaws.com",
+            "id": "eu-west-1",
+            "name": "eu-west-1"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_deployment",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": []
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_integration",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": "get_items",
+          "schema_version": 0,
+          "attributes": {
+            "cache_key_parameters": null,
+            "cache_namespace": "d8l8tk",
+            "connection_id": "",
+            "connection_type": "INTERNET",
+            "content_handling": "",
+            "credentials": "",
+            "http_method": "GET",
+            "id": "agi-9fzz23p3ph-d8l8tk-GET",
+            "integration_http_method": "ANY",
+            "passthrough_behavior": "WHEN_NO_MATCH",
+            "request_parameters": null,
+            "request_templates": null,
+            "resource_id": "d8l8tk",
+            "rest_api_id": "9fzz23p3ph",
+            "timeout_milliseconds": 29000,
+            "tls_config": [],
+            "type": "HTTP",
+            "uri": "https://backend.example.com/items"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_method.this",
+            "aws_api_gateway_resource.path",
+            "aws_api_gateway_rest_api.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_method",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": "create_item",
+          "schema_version": 0,
+          "attributes": {
+            "api_key_required": false,
+            "authorization": "NONE",
+            "authorization_scopes": null,
+            "authorizer_id": null,
+            "http_method": "POST",
+            "id": "agm-9fzz23p3ph-d8l8tk-POST",
+            "operation_name": null,
+            "request_models": null,
+            "request_parameters": null,
+            "request_validator_id": null,
+            "resource_id": "d8l8tk",
+            "rest_api_id": "9fzz23p3ph"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_resource.path",
+            "aws_api_gateway_rest_api.this"
+          ]
+        },
+        {
+          "index_key": "get_items",
+          "schema_version": 0,
+          "attributes": {
+            "api_key_required": false,
+            "authorization": "NONE",
+            "authorization_scopes": null,
+            "authorizer_id": null,
+            "http_method": "GET",
+            "id": "agm-9fzz23p3ph-d8l8tk-GET",
+            "operation_name": null,
+            "request_models": null,
+            "request_parameters": null,
+            "request_validator_id": null,
+            "resource_id": "d8l8tk",
+            "rest_api_id": "9fzz23p3ph"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_resource.path",
+            "aws_api_gateway_rest_api.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_method_settings",
+      "name": "all",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": []
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_resource",
+      "name": "path",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": "/items",
+          "schema_version": 0,
+          "attributes": {
+            "id": "d8l8tk",
+            "parent_id": "0te74wd2nl",
+            "path": "/items",
+            "path_part": "items",
+            "rest_api_id": "9fzz23p3ph"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_rest_api.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_rest_api",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_key_source": "HEADER",
+            "arn": "arn:aws:apigateway:eu-west-1::/restapis/9fzz23p3ph",
+            "binary_media_types": [],
+            "body": null,
+            "created_date": "2026-01-09T13:34:43Z",
+            "description": "REST API (Regional) for mvp-dev-apigateway-1",
+            "disable_execute_api_endpoint": false,
+            "endpoint_configuration": [
+              {
+                "ip_address_type": "ipv4",
+                "types": [
+                  "REGIONAL"
+                ],
+                "vpc_endpoint_ids": []
+              }
+            ],
+            "execution_arn": "arn:aws:execute-api:eu-west-1:700672899528:9fzz23p3ph",
+            "fail_on_warnings": null,
+            "id": "9fzz23p3ph",
+            "minimum_compression_size": "",
+            "name": "mvp-dev-apigateway-1",
+            "parameters": null,
+            "policy": "",
+            "put_rest_api_mode": null,
+            "root_resource_id": "0te74wd2nl",
+            "tags": {
+              "app": "mvp",
+              "env": "dev"
+            },
+            "tags_all": {
+              "app": "mvp",
+              "env": "dev"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_stage",
+      "name": "prod",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": []
+    }
+  ],
+  "check_results": null
+}

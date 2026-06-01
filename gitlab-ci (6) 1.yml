@@ -1,0 +1,114 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: always
+    - if: '$CI_COMMIT_BRANCH == "skylight-dev"'
+      variables:
+        S3_BUCKET: "skylight-qa-s3-bucket-frontend"
+        DISTRIBUTION_ID: "E2I00WUKIP9QJK"
+        SONAR_PROJECT_KEY: "Skylight-DEV-key"
+        SONAR_TOKEN: $SONAR_DEV_TOKEN
+    - if: '$CI_COMMIT_BRANCH == "skylight-test"'
+      variables:
+        S3_BUCKET: "coforge-skylight-test"
+        DISTRIBUTION_ID: "E2H79OGA8JTSVA"
+        SONAR_PROJECT_KEY: "Skylight-QA-Key"
+        SONAR_TOKEN: $SONAR_QA_TOKEN
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      variables:
+        S3_BUCKET: "skylight-qa-s3-bucket-frontend"
+        DISTRIBUTION_ID: "E2I00WUKIP9QJK"
+        SONAR_PROJECT_KEY: "Skylight-QA-Key"
+        SONAR_TOKEN: $SONAR_QA_TOKEN
+    - if: '$CI_COMMIT_BRANCH == "skylight-mufg-uat"'
+      variables:
+        S3_BUCKET: "skylight-mvp-uat-s3-bucket-frontend"
+        DISTRIBUTION_ID: "E10ZL3I5WAE8AZ"
+        SONAR_PROJECT_KEY: "Skylight-UAT-Key"
+        SONAR_TOKEN: $SONAR_UAT_TOKEN
+    - if: '$CI_COMMIT_BRANCH == "temp-skylight-mufg-uat"'
+      variables:
+        S3_BUCKET: "skylight-mvp-uat-s3-bucket-frontend"
+        DISTRIBUTION_ID: "E10ZL3I5WAE8AZ"
+        SONAR_PROJECT_KEY: "Skylight-UAT-Key"
+        SONAR_TOKEN: $SONAR_UAT_TOKEN
+    - if: '$CI_COMMIT_BRANCH'
+      variables:
+        S3_BUCKET: "coforge-skylight-test"
+        DISTRIBUTION_ID: "E2H79OGA8JTSVA"
+        SONAR_PROJECT_KEY: "Default-Project-Key"
+        SONAR_TOKEN: $SONAR_DEFAULT_TOKEN
+
+stages:
+  - sonarqube
+  - build
+  - deploy
+
+sonarqube:
+  stage: sonarqube
+  tags:
+    - shell-runner
+  before_script:
+    - npm install -g sonar-scanner
+    - pwd
+    - ls -R
+  script:
+    - cd Frontend
+    - pwd && ls -lrta
+    - npm install --save-dev @jest/globals cross-env jest nyc sonar-scanner
+    - npm run test:coverage || true
+    - |
+      sonar-scanner \
+        -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+        -Dsonar.sources=. \
+        -Dsonar.host.url=https://sonaqube.coforgemufg.com \
+        -Dsonar.login=$SONAR_TOKEN \
+        -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+        -Dsonar.exclusions=**/*.exe
+    - pwd && ls -lrta
+  allow_failure: true
+  artifacts:
+    paths:
+      - Frontend/coverage/
+  coverage: '/Lines\\s*:\\s*(\\d+\\.\\d+)%/'
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "temp-skylight-mufg-uat"'
+      variables:
+        SONAR_PROJECT_KEY: "Skylight-QA-Key"
+        SONAR_TOKEN: $SONAR_QA_TOKEN
+    - if: '$CI_COMMIT_BRANCH == "skylight-mufg-uat"'
+      variables:
+        SONAR_PROJECT_KEY: "Skylight-QA-Key"
+        SONAR_TOKEN: $SONAR_QA_TOKEN
+        SONAR_HOST_URL: "https://sonaqube.coforgemufg.com"
+
+build-frontend:
+  stage: build
+  tags:
+    - shell-runner
+  script:
+    - cd Frontend
+    - echo "Building the frontend application"
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - Frontend/dist
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "skylight-dev" || $CI_COMMIT_BRANCH == "skylight-test" || $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "skylight-dev-crm-integration" || $CI_COMMIT_BRANCH == "temp-skylight-mufg-uat" || $CI_COMMIT_BRANCH == "skylight-mufg-uat"'
+      changes:
+        - Frontend/**/*
+
+deploy-frontend:
+  stage: deploy
+  needs: [ "build-frontend" ]
+  tags:
+    - shell-runner
+  script:
+    - echo "Syncing dist/ to s3://$S3_BUCKET/Frontend"
+    - aws s3 sync Frontend/dist/ s3://${S3_BUCKET} --delete
+    - aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "/*"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "skylight-dev" || $CI_COMMIT_BRANCH == "skylight-test" || $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "skylight-dev-crm-integration" || $CI_COMMIT_BRANCH == "temp-skylight-mufg-uat" || $CI_COMMIT_BRANCH == "skylight-mufg-uat"'
+      changes:
+        - Frontend/**/*
